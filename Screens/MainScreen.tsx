@@ -13,6 +13,7 @@ import {useNavigation} from '@react-navigation/native';
 import {HeaderButton} from '../components';
 import {colors} from '../consts/colors';
 import globalStyles from '../styles';
+import MainPageContainer from '../containers/mainPage/mainPage';
 
 interface Props {}
 
@@ -32,7 +33,11 @@ const MainScreen: React.FC<Props> = ({}) => {
         });
     });
 
-    return <View style={globalStyles.screen}></View>;
+    return (
+        <View style={globalStyles.screen}>
+            <MainPageContainer />
+        </View>
+    );
 };
 
 export default MainScreen;
