@@ -11,6 +11,8 @@ import {
 
 interface Props {}
 
-export const RegisterScreen: React.FC<Props> = ({}) => {
+const LoginScreen: React.FC<Props> = ({}) => {
     return <View></View>;
 };
+
+export default LoginScreen;
