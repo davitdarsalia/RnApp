@@ -8,6 +8,10 @@ interface Props {
 }
 
 const HotelItem: React.FC<Props> = ({item}) => {
+    const discountPercent = Math.round(
+        ((item.price - item.discount_price) / item.price) * 100,
+    );
+
     return (
         <View style={st.container}>
             <TouchableOpacity style={st.imageContainer}>
@@ -22,8 +26,17 @@ const HotelItem: React.FC<Props> = ({item}) => {
                 <Text style={st.label}>{item.name}</Text>
                 <Text style={st.location}>{item.location}</Text>
                 <View style={st.priceContainer}>
-                    <Text style={st.price}>{item.price}</Text>
-                    <Text>{item.discount_price}</Text>
+                    <View style={st.price}>
+                        <Text style={st.oldPriceLabel}>{item.price}$</Text>
+                    </View>
+                    <View style={st.discountPrice}>
+                        <Text style={st.priceLabel}>
+                            {item.discount_price}$
+                        </Text>
+                    </View>
+                    <View style={st.percentBadge}>
+                        <Text style={st.priceLabel}>-{discountPercent}%</Text>
+                    </View>
                 </View>
             </View>
         </View>

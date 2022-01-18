@@ -39,9 +39,37 @@ const st = StyleSheet.create({
     },
     priceContainer: {
         flexDirection: 'row',
+        paddingHorizontal: 30,
+        padding: 10,
+        justifyContent: 'space-around',
     },
     price: {
+        padding: 7,
+        backgroundColor: colors.grey,
+        borderWidth: 1,
+        borderColor: colors.grey,
+        borderRadius: 15,
+    },
+    oldPriceLabel: {
         fontSize: 18,
+        textDecorationLine: 'line-through',
+    },
+    priceLabel: {
+        fontSize: 18,
+    },
+    discountPrice: {
+        padding: 7,
+        backgroundColor: colors.accent,
+        borderWidth: 1,
+        borderColor: colors.accent,
+        borderRadius: 15,
+    },
+    percentBadge: {
+        padding: 7,
+        backgroundColor: colors.red,
+        borderWidth: 1,
+        borderColor: colors.red,
+        borderRadius: 15,
     },
 });
 

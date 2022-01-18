@@ -5,6 +5,8 @@ interface Types {
     background: string;
     accent: string;
     lightFont: string;
+    grey: string;
+    red: string;
 }
 
 export const colors: Types = {
@@ -14,4 +16,6 @@ export const colors: Types = {
     background: '#fafafa',
     accent: '#55efc4',
     lightFont: '#2d3436',
+    grey: '#b2bec3',
+    red: '#ea8685',
 };
