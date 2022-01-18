@@ -25,7 +25,9 @@ const MainScreen: React.FC<Props> = ({}) => {
         navigate('allHotelsScreen');
     };
 
-    const onHotelItem = () => {};
+    const onHotelItem = () => {
+        navigate('hotelDetailScreen');
+    };
 
     useEffect(() => {
         setOptions({
