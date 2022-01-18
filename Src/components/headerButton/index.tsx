@@ -2,7 +2,6 @@ import React from 'react';
 import {View} from 'react-native';
 
 import {Ionicons} from '@expo/vector-icons';
-import {colors} from '../../consts/colors';
 import st from './style';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 

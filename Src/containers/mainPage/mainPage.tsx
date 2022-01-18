@@ -1,5 +1,5 @@
 import React, {useCallback} from 'react';
-import {View, Text, FlatList} from 'react-native';
+import {View, Text, FlatList, Button, TouchableOpacity} from 'react-native';
 
 import {HotelItem} from '../../components';
 
@@ -72,11 +72,17 @@ const MainPageContainer: React.FC<Props> = ({}) => {
 
     return (
         <View style={st.container}>
-            <Text style={st.label}>Currently available hotels: </Text>
+            <View style={st.labelContainer}>
+                <Text style={st.label}>Currently available hotels: </Text>
+                <TouchableOpacity onPress={() => {}}>
+                    <Text style={st.buttonLabel}>See All</Text>
+                </TouchableOpacity>
+            </View>
             <View style={st.itemsContainer}>
                 <FlatList
                     data={DATA}
                     horizontal={true}
+                    showsHorizontalScrollIndicator={false}
                     keyExtractor={(item) => item.user_id.toString()}
                     renderItem={renderItem}
                 />
