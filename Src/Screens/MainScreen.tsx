@@ -8,17 +8,24 @@ import {
     TouchableOpacity,
     StyleSheet,
 } from 'react-native';
-
-import {useNavigation} from '@react-navigation/native';
+import MainPageContainer from '../containers/mainPage/mainPage';
 import {HeaderButton} from '../components';
+
 import {colors} from '../consts/colors';
 import globalStyles from '../../styles';
-import MainPageContainer from '../containers/mainPage/mainPage';
+
+import {useNavigation} from '@react-navigation/native';
 
 interface Props {}
 
 const MainScreen: React.FC<Props> = ({}) => {
-    const {setOptions} = useNavigation();
+    const {navigate, setOptions} = useNavigation();
+
+    const onSeeAll = () => {
+        navigate('allHotelsScreen');
+    };
+
+    const onHotelItem = () => {};
 
     useEffect(() => {
         setOptions({
@@ -35,7 +42,7 @@ const MainScreen: React.FC<Props> = ({}) => {
 
     return (
         <View style={globalStyles.mainScreen}>
-            <MainPageContainer />
+            <MainPageContainer onSeeAll={onSeeAll} onHotelItem={onHotelItem} />
         </View>
     );
 };

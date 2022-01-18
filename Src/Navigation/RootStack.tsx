@@ -6,6 +6,7 @@ import RegisterScreen from '../Screens/RegisterScreen';
 import MainScreen from '../Screens/MainScreen';
 
 import {colors} from '../consts/colors';
+import AllHotelsScreen from '../Screens/AllHotelsScreen';
 
 const Stack = createStackNavigator<RootStackScreenList>();
 
@@ -23,6 +24,18 @@ const RootStack: React.FC<Props> = () => {
                 options={{
                     title: 'Hotel Midnight',
                     headerTintColor: colors.main,
+                    headerStyle: {
+                        backgroundColor: colors.background,
+                    },
+                }}
+            />
+            <Screen
+                name="allHotelsScreen"
+                component={AllHotelsScreen}
+                options={{
+                    title: 'All Hotels',
+                    headerTintColor: colors.main,
+                    headerBackTitle: ' ',
                     headerStyle: {
                         backgroundColor: colors.background,
                     },

@@ -1,16 +1,14 @@
 import React, {useCallback} from 'react';
-import {View, Text, FlatList, Button, TouchableOpacity} from 'react-native';
-
-import {HotelItem} from '../../components';
+import {View, FlatList} from 'react-native';
+import HotelItem from '../../components/hotelItem/index';
 
 import st from './style';
 
 interface Props {
-    onSeeAll: () => void;
     onHotelItem: () => void;
 }
 
-const MainPageContainer: React.FC<Props> = ({onSeeAll, onHotelItem}) => {
+const AllHotelsContainer: React.FC<Props> = ({onHotelItem}) => {
     const DATA = [
         {
             name: 'lopota',
@@ -80,23 +78,14 @@ const MainPageContainer: React.FC<Props> = ({onSeeAll, onHotelItem}) => {
 
     return (
         <View style={st.container}>
-            <View style={st.labelContainer}>
-                <Text style={st.label}>Currently available hotels: </Text>
-                <TouchableOpacity onPress={onSeeAll}>
-                    <Text style={st.buttonLabel}>See All</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={st.itemsContainer}>
-                <FlatList
-                    data={DATA}
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    keyExtractor={(item) => item.user_id.toString()}
-                    renderItem={renderItem}
-                />
-            </View>
+            <FlatList
+                data={DATA}
+                showsHorizontalScrollIndicator={false}
+                keyExtractor={(item) => item.user_id.toString()}
+                renderItem={renderItem}
+            />
         </View>
     );
 };
 
-export default MainPageContainer;
+export default AllHotelsContainer;

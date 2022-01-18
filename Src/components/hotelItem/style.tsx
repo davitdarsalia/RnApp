@@ -28,6 +28,13 @@ const st = StyleSheet.create({
         height: '30%',
         paddingHorizontal: 15,
     },
+    labelWrapper: {
+        flexDirection: 'row',
+        justifyContent: 'space-between',
+    },
+    labelCountainer: {
+        flexDirection: 'column',
+    },
     label: {
         fontWeight: '500',
         fontSize: 20,
