@@ -29,6 +29,10 @@ const MainScreen: React.FC<Props> = ({}) => {
         navigate('hotelDetailScreen');
     };
 
+    const onRegistration = () => {
+        navigate('registrationScreen');
+    };
+
     useEffect(() => {
         setOptions({
             headerRight: () => (
@@ -36,7 +40,7 @@ const MainScreen: React.FC<Props> = ({}) => {
                     name={'person-outline'}
                     size={20}
                     color={colors.main}
-                    onPress={() => {}}
+                    onPress={onRegistration}
                 />
             ),
         });

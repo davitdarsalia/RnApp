@@ -20,7 +20,7 @@ const HeaderButton: React.FC<Props> = ({
 }) => {
     return (
         <View style={st.padding}>
-            <TouchableOpacity>
+            <TouchableOpacity onPress={onPress}>
                 <Ionicons
                     name={name}
                     size={size}

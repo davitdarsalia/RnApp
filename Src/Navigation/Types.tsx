@@ -3,6 +3,7 @@ export type RootStackScreenList = {
     mainScreen: undefined;
     allHotelsScreen: undefined;
     hotelDetailScreen: undefined;
+    registrationScreen: undefined;
     loginScreen: undefined;
     registerScreen: undefined;
 };

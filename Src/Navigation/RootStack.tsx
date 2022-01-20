@@ -1,13 +1,15 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
 import {RootStackScreenList} from './Types';
+
 import LoginScreen from '../Screens/LoginScreen';
 import RegisterScreen from '../Screens/RegisterScreen';
 import MainScreen from '../Screens/MainScreen';
 import AllHotelsScreen from '../Screens/AllHotelsScreen';
+import HotelDetailScreen from '../Screens/HotelDetailScreen';
+import RegistrationScreen from '../Screens/RegistrationScreen';
 
 import {colors} from '../consts/colors';
-import HotelDetailScreen from '../Screens/HotelDetailScreen';
 
 const Stack = createStackNavigator<RootStackScreenList>();
 
@@ -47,6 +49,16 @@ const RootStack: React.FC<Props> = () => {
                 component={HotelDetailScreen}
                 options={{
                     title: ' ',
+                    headerTransparent: true,
+                    headerTintColor: colors.main,
+                    headerBackTitle: ' ',
+                }}
+            />
+            <Screen
+                name="registrationScreen"
+                component={RegistrationScreen}
+                options={{
+                    title: 'Registration / Login ',
                     headerTransparent: true,
                     headerTintColor: colors.main,
                     headerBackTitle: ' ',
