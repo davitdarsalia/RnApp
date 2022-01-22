@@ -10,7 +10,7 @@ const initialState = {
     errors: null,
 };
 
-export const userReducer = (
+export const authReducer = (
     state = initialState,
     action: AuthActionType<any>,
 ) => {
