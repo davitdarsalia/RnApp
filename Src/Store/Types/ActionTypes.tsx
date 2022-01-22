@@ -1,6 +1,6 @@
 // Action.Payload Types
 
-export interface UserAction<T> {
+export interface AuthActionType<T> {
     type: string;
     payload?: T;
 }
