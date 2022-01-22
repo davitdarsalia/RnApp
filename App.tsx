@@ -9,7 +9,7 @@ import RootStack from './Src/Navigation/RootStack';
 
 import globalStyles from './styles';
 
-export const App = () => {
+const App = () => {
     return (
         <NavigationContainer>
             <Provider store={store}>
@@ -20,3 +20,5 @@ export const App = () => {
         </NavigationContainer>
     );
 };
+
+export default App;
