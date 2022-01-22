@@ -1,14 +1,22 @@
+import React from 'react';
+import {View} from 'react-native';
+
+import {Provider} from 'react-redux';
+import {store} from './Src/Store';
+
 import {NavigationContainer} from '@react-navigation/native';
-import {StyleSheet, Text, View} from 'react-native';
 import RootStack from './Src/Navigation/RootStack';
+
 import globalStyles from './styles';
 
-export default function App() {
+export const App = () => {
     return (
         <NavigationContainer>
-            <View style={globalStyles.screen}>
-                <RootStack />
-            </View>
+            <Provider store={store}>
+                <View style={globalStyles.screen}>
+                    <RootStack />
+                </View>
+            </Provider>
         </NavigationContainer>
     );
-}
+};
