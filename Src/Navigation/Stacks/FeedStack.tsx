@@ -1,6 +1,6 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {RootStackScreenList} from '../Types';
+import {FeedStackScreenList, RootStackScreenList} from '../Types';
 
 import MainScreen from '../../Screens/MainScreen';
 import AllHotelsScreen from '../../Screens/AllHotelsScreen';
@@ -8,7 +8,7 @@ import HotelDetailScreen from '../../Screens/HotelDetailScreen';
 
 import {colors} from '../../consts/colors';
 
-const Stack = createStackNavigator<RootStackScreenList>();
+const Stack = createStackNavigator<FeedStackScreenList>();
 
 interface Props {}
 
