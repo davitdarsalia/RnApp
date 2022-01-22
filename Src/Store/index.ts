@@ -1,8 +1,10 @@
 import {applyMiddleware, createStore} from 'redux';
-import ReduxThunk from 'redux-thunk';
 
 import {persistStore, persistReducer} from 'redux-persist';
 import createFilter from 'redux-persist-transform-filter';
+
+import thunk from 'redux-thunk';
+import {logger} from 'redux-logger';
 
 import AsyncStorage from '@react-native-async-storage/async-storage';
 
@@ -27,7 +29,7 @@ const PersistConfig = {
 
 const persistorReducer = persistReducer(PersistConfig, RootReducer);
 
-const store = createStore(persistorReducer, applyMiddleware(ReduxThunk));
+const store = createStore(persistorReducer, applyMiddleware(logger, thunk));
 const persistor = persistStore;
 
 // Type For Custon App Dispatch
