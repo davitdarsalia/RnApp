@@ -10,7 +10,7 @@ const initialState = {
     errors: null,
 };
 
-export const userReducer = <K>(
+export const userReducer = (
     state = initialState,
     action: AuthActionType<any>,
 ) => {
@@ -26,9 +26,7 @@ export const userReducer = <K>(
                 ...state,
                 loading: false,
                 errors: null,
-                registerData: {
-                    action,
-                },
+                registerData: action.payload,
             };
         case AuthActions.LOGIN_FAILURE:
             return {
