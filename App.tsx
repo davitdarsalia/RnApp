@@ -1,22 +1,14 @@
-import { StatusBar } from "expo-status-bar";
-import { SafeAreaProvider } from "react-native-safe-area-context";
-
-import useCachedResources from "./hooks/useCachedResources";
-import useColorScheme from "./hooks/useColorScheme";
-import Navigation from "./navigation";
+import {NavigationContainer} from '@react-navigation/native';
+import {View} from 'react-native';
+import RootStack from './Src/Navigation/RootStack';
+import globalStyles from './styles';
 
 export default function App() {
-  const isLoadingComplete = useCachedResources();
-  const colorScheme = useColorScheme();
-
-  if (!isLoadingComplete) {
-    return null;
-  } else {
     return (
-      <SafeAreaProvider>
-        <Navigation colorScheme={colorScheme} />
-        <StatusBar />
-      </SafeAreaProvider>
+        <NavigationContainer>
+            <View style={globalStyles.screen}>
+                <RootStack />
+            </View>
+        </NavigationContainer>
     );
-  }
 }
