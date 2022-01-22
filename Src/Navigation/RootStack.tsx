@@ -4,12 +4,15 @@ import {RootStackScreenList} from './Types';
 
 import LoginScreen from '../Screens/LoginScreen';
 import RegisterScreen from '../Screens/RegisterScreen';
-import MainScreen from '../Screens/MainScreen';
+
 import AllHotelsScreen from '../Screens/AllHotelsScreen';
 import HotelDetailScreen from '../Screens/HotelDetailScreen';
 import RegistrationScreen from '../Screens/RegistrationScreen';
 
 import {colors} from '../consts/colors';
+import MainScreen from '../Screens/MainScreen';
+import {Hotel} from '../Screens/Hotel';
+import AllHotelsContainer from '../containers/allHotelsContainer/allHotelsContainer';
 
 const Stack = createStackNavigator<RootStackScreenList>();
 
@@ -22,8 +25,8 @@ const RootStack: React.FC<Props> = () => {
         <Navigator initialRouteName="mainScreen">
             {/* <Screen name="authLoading" component={} /> */}
             <Screen
-                name="mainScreen"
-                component={MainScreen}
+                name="hotel"
+                component={Hotel}
                 options={{
                     title: 'Hotel Midnight',
                     headerTintColor: colors.main,
@@ -32,7 +35,18 @@ const RootStack: React.FC<Props> = () => {
                     },
                 }}
             />
-            <Screen
+            {/* <Screen
+                name="allHotelsScreen"
+                component={AllHotelsScreen}
+                options={{
+                    title: 'Hotel Midnight',
+                    headerTintColor: colors.main,
+                    headerStyle: {
+                        backgroundColor: colors.background,
+                    },
+                }}
+            /> */}
+            {/* <Screen
                 name="allHotelsScreen"
                 component={AllHotelsScreen}
                 options={{
@@ -65,7 +79,7 @@ const RootStack: React.FC<Props> = () => {
                 }}
             />
             <Screen name="loginScreen" component={LoginScreen} />
-            <Screen name="registerScreen" component={RegisterScreen} />
+            <Screen name="registerScreen" component={RegisterScreen} /> */}
         </Navigator>
     );
 };

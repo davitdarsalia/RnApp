@@ -1,7 +1,7 @@
 import {NavigationContainer} from '@react-navigation/native';
 import {View} from 'react-native';
-import RootStack from './Src/Navigation/RootStack';
-import globalStyles from './styles';
+import RootStack from './Navigation/RootStack';
+import globalStyles from '../styles';
 
 export default function App() {
     return (
