@@ -1,21 +1,18 @@
 import React from 'react';
 import {createStackNavigator} from '@react-navigation/stack';
-import {RootStackScreenList} from './Types';
+import {FeedStackScreenList, RootStackScreenList} from '../Types';
 
-import LoginScreen from '../Screens/LoginScreen';
-import RegisterScreen from '../Screens/RegisterScreen';
-import MainScreen from '../Screens/MainScreen';
-import AllHotelsScreen from '../Screens/AllHotelsScreen';
-import HotelDetailScreen from '../Screens/HotelDetailScreen';
-import RegistrationScreen from '../Screens/RegistrationScreen';
+import MainScreen from '../../Screens/MainScreen';
+import AllHotelsScreen from '../../Screens/AllHotelsScreen';
+import HotelDetailScreen from '../../Screens/HotelDetailScreen';
 
-import {colors} from '../consts/colors';
+import {colors} from '../../consts/colors';
 
-const Stack = createStackNavigator<RootStackScreenList>();
+const Stack = createStackNavigator<FeedStackScreenList>();
 
 interface Props {}
 
-const RootStack: React.FC<Props> = () => {
+const FeedStack: React.FC<Props> = () => {
     const {Navigator, Screen} = Stack;
 
     return (
@@ -54,20 +51,8 @@ const RootStack: React.FC<Props> = () => {
                     headerBackTitle: ' ',
                 }}
             />
-            <Screen
-                name="registrationScreen"
-                component={RegistrationScreen}
-                options={{
-                    title: 'Registration / Login ',
-                    headerTransparent: true,
-                    headerTintColor: colors.main,
-                    headerBackTitle: ' ',
-                }}
-            />
-            <Screen name="loginScreen" component={LoginScreen} />
-            <Screen name="registerScreen" component={RegisterScreen} />
         </Navigator>
     );
 };
 
-export default RootStack;
+export default FeedStack;
