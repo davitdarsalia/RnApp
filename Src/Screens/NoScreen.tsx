@@ -14,7 +14,7 @@ interface Props {}
 export const NoScreen: React.FC<Props> = ({}) => {
   return (
     <View>
-      <Text>David</Text>
+      <Text></Text>
     </View>
   );
 };
