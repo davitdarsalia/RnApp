@@ -1,4 +1,4 @@
-import {UserAction} from './../Types/ActionTypes';
+import {AuthActionType} from './../Types/ActionTypes';
 import {AuthActions} from '../Types/AuthTypes';
 
 const initialState = {
@@ -12,7 +12,7 @@ const initialState = {
 
 export const userReducer = <K>(
     state = initialState,
-    action: UserAction<any>,
+    action: AuthActionType<any>,
 ) => {
     switch (action.type) {
         case AuthActions.LOGIN_REQUEST:
