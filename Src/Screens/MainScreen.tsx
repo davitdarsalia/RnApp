@@ -15,11 +15,20 @@ import {colors} from '../consts/colors';
 import globalStyles from '../../styles';
 
 import {useNavigation} from '@react-navigation/native';
+import {FeedStackNavProp, RootStackNavProp} from '../Navigation/Types';
 
 interface Props {}
 
 const MainScreen: React.FC<Props> = ({}) => {
-    const {navigate, setOptions} = useNavigation();
+    const {navigate, setOptions} =
+        useNavigation<
+            FeedStackNavProp<
+                'allHotelsScreen' | 'hotelDetailScreen' | 'mainScreen'
+            >
+        >();
+    const {replace} = useNavigation<RootStackNavProp<'registerScreen'>>();
+
+    /* Navigation */
 
     const onSeeAll = () => {
         navigate('allHotelsScreen');
@@ -30,7 +39,7 @@ const MainScreen: React.FC<Props> = ({}) => {
     };
 
     const onRegistration = () => {
-        navigate('registrationScreen');
+        replace('registrationScreen');
     };
 
     useEffect(() => {
