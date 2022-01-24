@@ -17,7 +17,6 @@ const FeedStack: React.FC<Props> = () => {
 
     return (
         <Navigator initialRouteName="mainScreen">
-            {/* <Screen name="authLoading" component={} /> */}
             <Screen
                 name="mainScreen"
                 component={MainScreen}

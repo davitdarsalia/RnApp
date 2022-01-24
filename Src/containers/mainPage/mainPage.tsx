@@ -83,7 +83,7 @@ const MainPageContainer: React.FC<Props> = ({onSeeAll, onHotelItem}) => {
             <View style={st.labelContainer}>
                 <Text style={st.label}>Currently available hotels: </Text>
                 <TouchableOpacity onPress={onSeeAll}>
-                    <Text style={st.buttonLabel}>See All</Text>
+                    <Text style={st.buttonLabel}>View Map</Text>
                 </TouchableOpacity>
             </View>
             <View style={st.itemsContainer}>
