@@ -9,7 +9,9 @@ export const FetchHotels = () => async (dispatch: AppDispatch) => {
         const response = await axios.get<HotelResponseTypes>(
             'https://hackathon-2022.herokuapp.com/api/product/allhotels',
         );
-        dispatch(feedSlice.actions.fetchHotelsSuccess(response.data));
+        setTimeout(() => {
+            dispatch(feedSlice.actions.fetchHotelsSuccess(response.data));
+        }, 50);
     } catch (e) {
         dispatch(feedSlice.actions.fetchHotelsError(e));
     }

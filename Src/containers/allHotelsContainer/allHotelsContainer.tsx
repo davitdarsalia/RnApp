@@ -12,6 +12,7 @@ interface Props {
 const AllHotelsContainer: React.FC<Props> = ({onHotelItem}) => {
     const hotelList = UseTypeSelector((state) => state.feedReducer.hotels);
     const loading = UseTypeSelector((state) => state.feedReducer.loading);
+
     const {allHotels} = hotelList;
 
     const renderItem = useCallback(({item}) => {
