@@ -1,10 +1,7 @@
 import {StackNavigationProp} from '@react-navigation/stack';
 
 export type RootStackScreenList = {
-    feedStack: FeedStackScreenList;
-    registrationScreen: undefined;
-    loginScreen: undefined;
-    registerScreen: undefined;
+    tabStack: TabStackScreenList;
 };
 
 export type RootStackNavProp<J extends keyof RootStackScreenList> =
@@ -20,3 +17,16 @@ export type FeedStackScreenList = {
 
 export type FeedStackNavProp<T extends keyof FeedStackScreenList> =
     StackNavigationProp<FeedStackScreenList, T>;
+
+/* TabStack Stuff */
+
+export type TabStackScreenList = {
+    Feed: FeedStackScreenList;
+    Map: FeedStackScreenList;
+    Auth: undefined;
+};
+
+export type TabStackNavProp<T extends keyof TabStackScreenList> =
+    StackNavigationProp<TabStackScreenList, T>;
+
+/* TabStack Stuff */
