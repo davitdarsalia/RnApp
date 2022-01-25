@@ -10,6 +10,7 @@ export type RootStackNavProp<J extends keyof RootStackScreenList> =
 /* FeedStack Stuff */
 
 export type FeedStackScreenList = {
+    reg: undefined;
     mainScreen: undefined;
     allHotelsScreen: undefined;
     hotelDetailScreen: undefined;

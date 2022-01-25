@@ -26,7 +26,6 @@ const MainScreen: React.FC<Props> = ({}) => {
                 'allHotelsScreen' | 'hotelDetailScreen' | 'mainScreen'
             >
         >();
-    const {replace} = useNavigation<RootStackNavProp<'registerScreen'>>();
 
     /* Navigation */
 
@@ -39,7 +38,7 @@ const MainScreen: React.FC<Props> = ({}) => {
     };
 
     const onRegistration = () => {
-        replace('registrationScreen');
+        navigate('reg');
     };
 
     useEffect(() => {

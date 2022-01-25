@@ -7,6 +7,7 @@ import AllHotelsScreen from '../../Screens/AllHotelsScreen';
 import HotelDetailScreen from '../../Screens/HotelDetailScreen';
 
 import {colors} from '../../consts/colors';
+import RegistrationScreen from '../../Screens/RegistrationScreen';
 
 const Stack = createStackNavigator<FeedStackScreenList>();
 
@@ -17,6 +18,17 @@ const FeedStack: React.FC<Props> = () => {
 
     return (
         <Navigator initialRouteName="mainScreen">
+            <Screen
+                name="reg"
+                component={RegistrationScreen}
+                options={{
+                    title: 'Hotel Midnight',
+                    headerTintColor: colors.main,
+                    headerStyle: {
+                        backgroundColor: colors.background,
+                    },
+                }}
+            />
             <Screen
                 name="mainScreen"
                 component={MainScreen}
