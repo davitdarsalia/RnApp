@@ -1,18 +1,19 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {View, Text, TextInput, StyleProp, ViewComponent} from 'react-native';
 import st from './style';
 
-interface Props {
-    label: string;
-}
+interface Props {}
 
-export const CustomInput: React.FC<Props> = ({label}) => {
+export const CustomInput: React.FC<Props> = ({}) => {
+    const [text, setText] = useState<string>('');
+    console.log(text);
     return (
         <View style={st.container}>
-            <View style={[st.labelContainer]}>
-                <Text style={st.labelStyle}>{label}</Text>
-            </View>
-            <TextInput style={st.inputStyle} />
+            <TextInput
+                onChangeText={(text) => setText(text)}
+                value={text}
+                style={st.inputStyle}
+            />
         </View>
     );
 };
