@@ -1,6 +1,8 @@
-import React from 'react';
-import {SafeAreaView, Text} from 'react-native';
+import React, {useState} from 'react';
+import {Button, SafeAreaView} from 'react-native';
+
 import {CustomInput} from '../../components/customInput/CustomInput';
+import {registration} from '../../Types/GlobalInterfaces';
 import st from './style';
 
 interface Props {}
@@ -8,7 +10,10 @@ interface Props {}
 const RegistrationContainer: React.FC<Props> = ({}) => {
     return (
         <SafeAreaView style={st.container}>
-            <CustomInput label="Mobile Number" />
+            <CustomInput />
+            <CustomInput />
+
+            <Button title="Register" onPress={() => {}} />
         </SafeAreaView>
     );
 };
