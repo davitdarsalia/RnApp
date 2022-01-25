@@ -22,8 +22,8 @@ export type FeedStackNavProp<T extends keyof FeedStackScreenList> =
 
 export type TabStackScreenList = {
     Feed: FeedStackScreenList;
-    Map: FeedStackScreenList;
-    Auth: undefined;
+    Search: FeedStackScreenList;
+    Map: undefined;
 };
 
 export type TabStackNavProp<T extends keyof TabStackScreenList> =
