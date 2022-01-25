@@ -1,13 +1,15 @@
 import React from 'react';
-import {Text, View} from 'react-native';
+import {SafeAreaView, Text} from 'react-native';
+import {CustomInput} from '../../components/customInput/CustomInput';
+import st from './style';
 
 interface Props {}
 
 const RegistrationContainer: React.FC<Props> = ({}) => {
     return (
-        <View>
-            <Text>Registration</Text>
-        </View>
+        <SafeAreaView style={st.container}>
+            <CustomInput label="Mobile Number" />
+        </SafeAreaView>
     );
 };
 
