@@ -26,14 +26,25 @@ export const CustomInput: React.FC<Props> = ({
     value,
     isPasswordInput,
     label,
+    passwordInput,
 }) => {
     const [text, setText] = useState<string>(value);
-    const [visible, setVisible] = useState<boolean>(true);
-    const passwordIcon = visible ? (
-        <Entypo name="eye" size={24} color="black" />
-    ) : (
-        <Entypo name="eye-with-line" size={24} color="black" />
-    );
+    const [visible, setVisible] = useState<boolean>(false);
+
+    const passwordIcon =
+        visible && passwordInput ? (
+            <TouchableOpacity
+                onPress={() => setVisible((prev) => !prev)}
+                style={st.passwordIcon}>
+                <Entypo name="eye" size={24} color="black" />
+            </TouchableOpacity>
+        ) : (
+            <TouchableOpacity
+                style={st.passwordIcon}
+                onPress={() => setVisible((prev) => !prev)}>
+                <Entypo name="eye-with-line" size={24} color="black" />
+            </TouchableOpacity>
+        );
 
     return (
         <View style={st.container}>
@@ -45,11 +56,7 @@ export const CustomInput: React.FC<Props> = ({
                 value={text}
                 style={st.inputStyle}
             />
-            <TouchableOpacity
-                onPress={() => setVisible((prev) => !prev)}
-                style={st.passwordIcon}>
-                {passwordIcon}
-            </TouchableOpacity>
+            <View>{passwordIcon}</View>
         </View>
     );
 };
