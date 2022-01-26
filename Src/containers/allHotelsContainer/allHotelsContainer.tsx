@@ -15,19 +15,9 @@ const AllHotelsContainer: React.FC<Props> = ({onHotelItem}) => {
     const hotelList = UseTypeSelector((state) => state.feedReducer.hotels);
     const loading = UseTypeSelector((state) => state.feedReducer.loading);
 
-    const dispatch = UseCustomDispatch();
-
-    useEffect(() => {
-        const controller = new AbortController();
-        const signal = controller.signal;
-        dispatch(FetchHotels(signal));
-
-        return () => {
-            controller.abort();
-        };
-    }, []);
-
     const {allHotels} = hotelList;
+
+    // const dispatch = UseCustomDispatch();
 
     const renderItem = useCallback(({item}) => {
         const renderCondition = loading ? (
