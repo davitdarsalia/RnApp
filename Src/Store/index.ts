@@ -1,8 +1,10 @@
 import {combineReducers, configureStore} from '@reduxjs/toolkit';
+import authReducer from './Reducers/authReducer';
 import feedReducer from './Reducers/feedReducer';
 
 const rootReducer = combineReducers({
     feedReducer,
+    authReducer,
 });
 
 export const setupStore = () => {
