@@ -36,6 +36,7 @@ export const MapContainer: React.FC<Props> = ({}) => {
                     };
                     return (
                         <Marker
+                            zIndex={31}
                             key={`${coordinate.id} ${
                                 Math.random() * Date.now()
                             }`}
