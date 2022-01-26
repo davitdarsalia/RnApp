@@ -1,5 +1,6 @@
 import React from 'react';
 import {View, Text} from 'react-native';
+import {FlatList} from 'react-native-gesture-handler';
 
 import MapView, {Marker} from 'react-native-maps';
 import {UseTypeSelector} from '../../Store/Hooks/CustomSelector';
@@ -12,13 +13,6 @@ export const MapContainer: React.FC<Props> = ({}) => {
         latitude: 41.716667,
         longitude: 44.783333,
     };
-
-    const defs: defCoords = {
-        latitude: 41.716667,
-        longitude: 44.783333,
-    };
-
-    const coordinates: Array<defCoords> = [];
 
     const coords = UseTypeSelector(
         (state) => state.feedReducer.hotels.allHotels,
@@ -34,13 +28,23 @@ export const MapContainer: React.FC<Props> = ({}) => {
                     latitudeDelta: 0.1922,
                     longitudeDelta: 0.1421,
                 }}>
-                <Marker
-                    key={`${Math.random() * 33}`}
-                    coordinate={defs}
-                    title={'Glovo'}
-                    description={'Glovo Stuff'}
-                    pinColor="black"
-                />
+                {coords.map((coordinate) => {
+                    const coordObj = {
+                        latitude: Number(coordinate.latitude),
+                        longitude: Number(coordinate.longitude),
+                    };
+                    return (
+                        <Marker
+                            key={`${coordinate.id} ${
+                                Math.random() * Date.now()
+                            }`}
+                            coordinate={coordObj}
+                            title={coordinate.name}
+                            description={`${coordinate.description}`}
+                            pinColor="black"
+                        />
+                    );
+                })}
             </MapView>
         </View>
     );
