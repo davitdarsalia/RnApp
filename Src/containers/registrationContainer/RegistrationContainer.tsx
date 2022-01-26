@@ -5,21 +5,37 @@ import {CustomInput} from '../../components/customInput/CustomInput';
 import st from './style';
 
 import {Formik} from 'formik';
+
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 
-interface Props {}
+import {CustomButton} from '../../components/customButton/customButton';
 
-const RegistrationContainer: React.FC<Props> = ({}) => {
+interface Props {
+    onReg: (
+        fullName: string,
+        email: string,
+        password: string,
+        checked: string,
+    ) => void;
+}
+
+const RegistrationContainer: React.FC<Props> = ({onReg = () => {}}) => {
     return (
         <SafeAreaView style={st.container}>
             <Formik
                 initialValues={{
-                    email: '',
-                    password: '',
+                    fullName: 'Davit Darsalia',
+                    email: 'darsalia.david333@gmail.com',
+                    password: 'David.1998!',
                 }}
                 onSubmit={(values) => {
-                    console.log(values.email);
-                    console.log(values.password);
+                    onReg(
+                        values.fullName,
+                        values.password,
+                        values.email,
+                        'true',
+                    );
+                    console.log(values.fullName, values.password, values.email);
                 }}
                 // validationSchema={NewPasswordSchema}
             >
@@ -38,10 +54,10 @@ const RegistrationContainer: React.FC<Props> = ({}) => {
                             enableOnAndroid>
                             <CustomInput />
                             <CustomInput />
-
-                            <Button
-                                onPress={() => handleSubmit}
-                                title="Register"
+                            <CustomInput />
+                            <CustomButton
+                                onPress={handleSubmit}
+                                label="Register"
                             />
                         </KeyboardAwareScrollView>
                     );
