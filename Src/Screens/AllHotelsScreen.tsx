@@ -12,12 +12,6 @@ interface Props {}
 const AllHotelsScreen: React.FC<Props> = ({}) => {
     const onHotelItem = () => {};
 
-    const dispatch = UseCustomDispatch();
-
-    useEffect(() => {
-        dispatch(FetchHotels());
-    }, []);
-
     return (
         <View style={globalStyles.mainScreen}>
             <AllHotelsContainer onHotelItem={onHotelItem} />
