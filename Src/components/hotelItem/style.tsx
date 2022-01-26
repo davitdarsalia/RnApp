@@ -20,6 +20,8 @@ const st = StyleSheet.create({
 
         elevation: 14,
         marginVertical: 13,
+
+        overflow: 'hidden',
     },
     imageContainer: {
         alignItems: 'center',
