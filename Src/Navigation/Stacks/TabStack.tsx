@@ -84,7 +84,7 @@ const TabStack = () => {
             <Screen name="Feed" component={FeedStack} />
 
             <Screen name="Search" component={MapStack} />
-            <Screen name="Map" component={AuthScreen} />
+            <Screen name="Map" component={MapStack} />
         </Navigator>
     );
 };

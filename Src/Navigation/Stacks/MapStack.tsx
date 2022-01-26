@@ -1,6 +1,5 @@
 import {createStackNavigator} from '@react-navigation/stack';
 import React from 'react';
-import HotelDetailScreen from '../../Screens/HotelDetailScreen';
 import {MapScreen} from '../../Screens/MapScreen';
 
 const Stack = createStackNavigator();
@@ -14,7 +13,6 @@ const MapStack = () => {
                 headerShown: false,
             }}>
             <Screen name="map" component={MapScreen} />
-            <Screen name="detail" component={HotelDetailScreen} />
         </Navigator>
     );
 };

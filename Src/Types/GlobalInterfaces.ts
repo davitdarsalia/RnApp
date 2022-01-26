@@ -10,7 +10,7 @@ export interface registrationType {
     checked: string;
 }
 
-// export interface regError {
-//     message: 'User registration failed';
-//     stack: null;
-// }
+export interface defCoords {
+    latitude: number;
+    longitude: number;
+}
