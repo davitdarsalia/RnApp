@@ -10,6 +10,16 @@ const st = StyleSheet.create({
         marginHorizontal: 10,
         width: 300,
         height: 450,
+        shadowColor: 'rgba(0,0,0,.3)',
+        shadowOffset: {
+            width: 5,
+            height: 13,
+        },
+        shadowOpacity: 0.41,
+        shadowRadius: 9.11,
+
+        elevation: 14,
+        marginVertical: 13,
     },
     imageContainer: {
         alignItems: 'center',
