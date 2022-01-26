@@ -3,6 +3,7 @@ import {View, Text} from 'react-native';
 import {FlatList} from 'react-native-gesture-handler';
 
 import MapView, {Marker} from 'react-native-maps';
+import {colors} from '../../consts/colors';
 import {UseTypeSelector} from '../../Store/Hooks/CustomSelector';
 import {defCoords} from '../../Types/GlobalInterfaces';
 
@@ -41,7 +42,9 @@ export const MapContainer: React.FC<Props> = ({}) => {
                             coordinate={coordObj}
                             title={coordinate.name}
                             description={`${coordinate.description}`}
-                            pinColor="black"
+                            pinColor={colors.main}
+                            tappable
+                            onPress={() => console.log(coordinate.name)}
                         />
                     );
                 })}
