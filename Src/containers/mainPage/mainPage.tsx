@@ -1,7 +1,9 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {View, Text, FlatList, Button, TouchableOpacity} from 'react-native';
 
 import {HotelItem} from '../../components';
+import {FetchHotels} from '../../Store/Actions/FeedActions';
+import {UseCustomDispatch} from '../../Store/Hooks/CustomDispatch';
 
 import st from './style';
 
@@ -11,6 +13,17 @@ interface Props {
 }
 
 const MainPageContainer: React.FC<Props> = ({onSeeAll, onHotelItem}) => {
+    const dispatch = UseCustomDispatch();
+    useEffect(() => {
+        const controller = new AbortController();
+        const signal = controller.signal;
+        dispatch(FetchHotels(signal));
+
+        return () => {
+            controller.abort();
+        };
+    }, []);
+
     const DATA = [
         {
             name: 'lopota',
@@ -100,3 +113,6 @@ const MainPageContainer: React.FC<Props> = ({onSeeAll, onHotelItem}) => {
 };
 
 export default MainPageContainer;
+function dispatch(arg0: any) {
+    throw new Error('Function not implemented.');
+}
