@@ -18,12 +18,12 @@ const AllHotelsContainer: React.FC<Props> = ({onHotelItem}) => {
     const dispatch = UseCustomDispatch();
 
     useEffect(() => {
-        const contorller = new AbortController();
-        const signal = contorller.signal;
+        const controller = new AbortController();
+        const signal = controller.signal;
         dispatch(FetchHotels(signal));
 
         return () => {
-            contorller.abort();
+            controller.abort();
         };
     }, []);
 
