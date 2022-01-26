@@ -1,5 +1,5 @@
 import React, {useState} from 'react';
-import {Button, SafeAreaView} from 'react-native';
+import {Button, SafeAreaView, View} from 'react-native';
 
 import {CustomInput} from '../../components/customInput/CustomInput';
 import st from './style';
@@ -7,6 +7,7 @@ import st from './style';
 import {Formik} from 'formik';
 
 import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
+import {BlurView} from 'expo-blur';
 
 import {CustomButton} from '../../components/customButton/customButton';
 
@@ -52,16 +53,56 @@ const RegistrationContainer: React.FC<Props> = ({onReg = () => {}}) => {
                             showsVerticalScrollIndicator={false}
                             scrollEnabled
                             enableOnAndroid>
-                            <CustomInput value={values.fullName} />
-                            <CustomInput
-                                value={values.password}
-                                isPasswordInput={true}
+                            <View
+                                style={{
+                                    width: 100,
+                                    height: 100,
+                                    backgroundColor: 'purple',
+                                    position: 'absolute',
+                                    left: '35%',
+                                    top: '10%',
+                                }}
                             />
-                            <CustomInput value={values.email} />
-                            <CustomButton
-                                onPress={handleSubmit}
-                                label="Register"
+                            <View
+                                style={{
+                                    width: 100,
+                                    height: 100,
+                                    backgroundColor: 'teal',
+                                    position: 'absolute',
+                                    left: '35%',
+                                    top: '70%',
+                                }}
                             />
+                            <View
+                                style={{
+                                    width: 100,
+                                    height: 100,
+                                    backgroundColor: 'dodgerblue',
+                                    position: 'absolute',
+                                    left: '35%',
+                                    top: '40%',
+                                }}
+                            />
+                            <BlurView intensity={50} style={st.innerContainer}>
+                                <CustomInput
+                                    label="Full Name"
+                                    value={values.fullName}
+                                />
+                                <CustomInput
+                                    label="Password"
+                                    value={values.password}
+                                    isPasswordInput={true}
+                                    passwordInput={true}
+                                />
+                                <CustomInput
+                                    label="Email"
+                                    value={values.email}
+                                />
+                                <CustomButton
+                                    onPress={handleSubmit}
+                                    label="Register"
+                                />
+                            </BlurView>
                         </KeyboardAwareScrollView>
                     );
                 }}
