@@ -7,6 +7,7 @@ interface Types {
     lightFont: string;
     grey: string;
     red: string;
+    lightBlue: string;
 }
 
 export const colors: Types = {
@@ -18,4 +19,5 @@ export const colors: Types = {
     lightFont: '#2d3436',
     grey: '#b2bec3',
     red: '#ea8685',
+    lightBlue: '#0096FF',
 };

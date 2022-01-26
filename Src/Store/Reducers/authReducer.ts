@@ -1,40 +1,49 @@
-import {AuthActionType} from '../Types/ActionTypes';
-import {AuthActions} from '../Types/AuthTypes';
-
+import {createSlice, createAsyncThunk} from '@reduxjs/toolkit';
+import axios from 'axios';
+import {registrationType} from '../../Types/GlobalInterfaces';
 const initialState = {
     loginData: null,
     registerData: null,
-
+    token: null,
+    message: '',
+    errorMessage: '',
     loading: false,
-
-    errors: null,
 };
 
-export const authReducer = (
-    state = initialState,
-    action: AuthActionType<any>,
-) => {
-    switch (action.type) {
-        case AuthActions.LOGIN_REQUEST:
-            return {
-                ...state,
-                loading: true,
-                errors: null,
-            };
-        case AuthActions.LOGIN_SUCCESS:
-            return {
-                ...state,
-                loading: false,
-                errors: null,
-                registerData: action.payload,
-            };
-        case AuthActions.LOGIN_FAILURE:
-            return {
-                ...state,
-                loading: false,
-                errors: action.payload,
-            };
-        default:
-            return state;
-    }
-};
+const url = `https://hackathon-2022.herokuapp.com/api/user/register`;
+
+export const registrationAction = createAsyncThunk(
+    'auth/registration',
+    async ({fullName, email, password, checked}: registrationType) => {
+        const result = await axios.post(url, {
+            fullName,
+            email,
+            password,
+            checked,
+        });
+
+        console.log(result);
+    },
+);
+
+const authSlice = createSlice({
+    name: 'auth',
+    initialState,
+    reducers: {},
+    extraReducers: (builder) => {
+        builder
+            .addCase(registrationAction.pending, (state) => {
+                state.loading = true;
+            })
+            .addCase(registrationAction.fulfilled, (state, action: any) => {
+                state.loading = false;
+                state.message = action.payload;
+            })
+            .addCase(registrationAction.rejected, (state, action: any) => {
+                state.loading = false;
+                state.errorMessage = action.payload;
+            });
+    },
+});
+
+export default authSlice.reducer;

@@ -2,6 +2,9 @@ interface Hotels {
     id: number;
     name: string;
     location: string;
+    city: string;
+    latitude: string;
+    longitude: string;
     price: number;
     discount_price: number;
     email: string;
