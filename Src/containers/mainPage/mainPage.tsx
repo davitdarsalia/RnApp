@@ -5,6 +5,8 @@ import {HotelItem} from '../../components';
 import {FetchHotels} from '../../Store/Actions/FeedActions';
 import {UseCustomDispatch} from '../../Store/Hooks/CustomDispatch';
 
+import {LinearGradient} from 'expo-linear-gradient';
+
 import st from './style';
 
 interface Props {
@@ -93,26 +95,27 @@ const MainPageContainer: React.FC<Props> = ({onSeeAll, onHotelItem}) => {
 
     return (
         <View style={st.container}>
-            <View style={st.labelContainer}>
-                <Text style={st.label}>Currently available hotels: </Text>
-                <TouchableOpacity onPress={onSeeAll}>
-                    <Text style={st.buttonLabel}>View Map</Text>
-                </TouchableOpacity>
-            </View>
-            <View style={st.itemsContainer}>
-                <FlatList
-                    data={DATA}
-                    horizontal={true}
-                    showsHorizontalScrollIndicator={false}
-                    keyExtractor={(item) => item.user_id.toString()}
-                    renderItem={renderItem}
-                />
-            </View>
+            <LinearGradient
+                colors={['#7F7FD5', '#86A8E7', '#91EAE4']}
+                style={st.linearGradient}>
+                <View style={st.labelContainer}>
+                    <Text style={st.label}>Currently available hotels: </Text>
+                    <TouchableOpacity onPress={onSeeAll}>
+                        <Text style={st.buttonLabel}>View Map</Text>
+                    </TouchableOpacity>
+                </View>
+                <View style={st.itemsContainer}>
+                    <FlatList
+                        data={DATA}
+                        horizontal={true}
+                        showsHorizontalScrollIndicator={false}
+                        keyExtractor={(item) => item.user_id.toString()}
+                        renderItem={renderItem}
+                    />
+                </View>
+            </LinearGradient>
         </View>
     );
 };
 
 export default MainPageContainer;
-function dispatch(arg0: any) {
-    throw new Error('Function not implemented.');
-}

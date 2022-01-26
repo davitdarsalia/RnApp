@@ -1,3 +1,4 @@
+import BlurView from 'expo-blur/build/BlurView';
 import React from 'react';
 import {View, Text, Image, TouchableOpacity} from 'react-native';
 import {Rating} from 'react-native-ratings';
@@ -15,7 +16,7 @@ const HotelItem: React.FC<Props> = ({item, onHotelItem}) => {
     );
 
     return (
-        <View style={st.container}>
+        <BlurView intensity={90} style={st.container}>
             <TouchableOpacity style={st.imageContainer} onPress={onHotelItem}>
                 <Image
                     source={{
@@ -52,7 +53,7 @@ const HotelItem: React.FC<Props> = ({item, onHotelItem}) => {
                     </View>
                 </View>
             </View>
-        </View>
+        </BlurView>
     );
 };
 

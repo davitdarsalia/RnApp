@@ -1,9 +1,7 @@
-import React, {useEffect} from 'react';
+import React from 'react';
 import {View} from 'react-native';
-import {UseCustomDispatch} from '../Store/Hooks/CustomDispatch';
 
 import AllHotelsContainer from '../containers/allHotelsContainer/allHotelsContainer';
-import {FetchHotels} from '../Store/Actions/FeedActions';
 
 import globalStyles from '../../styles';
 

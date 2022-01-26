@@ -3,7 +3,7 @@ import {colors} from '../../consts/colors';
 
 const st = StyleSheet.create({
     container: {
-        padding: 15,
+        flex: 1,
     },
     labelContainer: {
         paddingHorizontal: 20,
@@ -23,6 +23,9 @@ const st = StyleSheet.create({
         alignItems: 'center',
         paddingVertical: 25,
         paddingHorizontal: 15,
+    },
+    linearGradient: {
+        flex: 1,
     },
 });
 
