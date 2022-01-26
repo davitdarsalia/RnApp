@@ -1,8 +1,6 @@
 import React, {useCallback, useEffect} from 'react';
 import {View, FlatList, ActivityIndicator} from 'react-native';
 import HotelItem from '../../components/hotelItem/index';
-import {FetchHotels} from '../../Store/Actions/FeedActions';
-import {UseCustomDispatch} from '../../Store/Hooks/CustomDispatch';
 import {UseTypeSelector} from '../../Store/Hooks/CustomSelector';
 
 import st from './style';
@@ -16,8 +14,6 @@ const AllHotelsContainer: React.FC<Props> = ({onHotelItem}) => {
     const loading = UseTypeSelector((state) => state.feedReducer.loading);
 
     const {allHotels} = hotelList;
-
-    // const dispatch = UseCustomDispatch();
 
     const renderItem = useCallback(({item}) => {
         const renderCondition = loading ? (
