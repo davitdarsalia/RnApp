@@ -33,7 +33,7 @@ const FeedStack: React.FC<Props> = () => {
                 name="mainScreen"
                 component={MainScreen}
                 options={{
-                    title: 'Hotel Midnight',
+                    title: 'Feed',
                     headerTintColor: colors.main,
                     headerStyle: {
                         backgroundColor: colors.background,
