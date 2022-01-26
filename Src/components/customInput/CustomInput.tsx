@@ -6,7 +6,6 @@ interface Props {}
 
 export const CustomInput: React.FC<Props> = ({}) => {
     const [text, setText] = useState<string>('');
-    console.log(text);
     return (
         <View style={st.container}>
             <TextInput
