@@ -52,9 +52,12 @@ const RegistrationContainer: React.FC<Props> = ({onReg = () => {}}) => {
                             showsVerticalScrollIndicator={false}
                             scrollEnabled
                             enableOnAndroid>
-                            <CustomInput />
-                            <CustomInput />
-                            <CustomInput />
+                            <CustomInput value={values.fullName} />
+                            <CustomInput
+                                value={values.password}
+                                isPasswordInput={true}
+                            />
+                            <CustomInput value={values.email} />
                             <CustomButton
                                 onPress={handleSubmit}
                                 label="Register"
