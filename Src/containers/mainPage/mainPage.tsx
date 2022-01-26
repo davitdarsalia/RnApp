@@ -119,6 +119,3 @@ const MainPageContainer: React.FC<Props> = ({onSeeAll, onHotelItem}) => {
 };
 
 export default MainPageContainer;
-function dispatch(arg0: any) {
-    throw new Error('Function not implemented.');
-}
