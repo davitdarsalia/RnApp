@@ -1,6 +1,8 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useEffect} from 'react';
 import {View, FlatList, ActivityIndicator} from 'react-native';
 import HotelItem from '../../components/hotelItem/index';
+import {FetchHotels} from '../../Store/Actions/FeedActions';
+import {UseCustomDispatch} from '../../Store/Hooks/CustomDispatch';
 import {UseTypeSelector} from '../../Store/Hooks/CustomSelector';
 
 import st from './style';
@@ -12,6 +14,18 @@ interface Props {
 const AllHotelsContainer: React.FC<Props> = ({onHotelItem}) => {
     const hotelList = UseTypeSelector((state) => state.feedReducer.hotels);
     const loading = UseTypeSelector((state) => state.feedReducer.loading);
+
+    const dispatch = UseCustomDispatch();
+
+    useEffect(() => {
+        const contorller = new AbortController();
+        const signal = contorller.signal;
+        dispatch(FetchHotels(signal));
+
+        return () => {
+            contorller.abort();
+        };
+    }, []);
 
     const {allHotels} = hotelList;
 
