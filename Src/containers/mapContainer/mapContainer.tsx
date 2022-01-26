@@ -24,10 +24,6 @@ export const MapContainer: React.FC<Props> = ({}) => {
         (state) => state.feedReducer.hotels.allHotels,
     );
 
-    // for(let i = 0 ; i < coords.length; i++ {
-
-    // })
-
     return (
         <View>
             <MapView
