@@ -1,5 +1,5 @@
-import React, {useState} from 'react';
-import {Button, SafeAreaView, View} from 'react-native';
+import React from 'react';
+import {SafeAreaView} from 'react-native';
 
 import CustomInput from '../../components/customInput/CustomInput';
 import st from './style';
