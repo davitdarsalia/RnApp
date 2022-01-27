@@ -22,7 +22,7 @@ interface Props {
     passwordInput?: boolean;
 }
 
-export const CustomInput: React.FC<Props> = ({
+const CustomInput: React.FC<Props> = ({
     value,
     isPasswordInput,
     label,
@@ -60,3 +60,5 @@ export const CustomInput: React.FC<Props> = ({
         </View>
     );
 };
+
+export default React.memo(CustomInput);

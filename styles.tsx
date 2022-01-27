@@ -10,6 +10,10 @@ const globalStyles = StyleSheet.create({
         flex: 1,
         backgroundColor: colors.background,
     },
+    username: {
+        color: colors.main,
+        paddingHorizontal: 15,
+    },
 });
 
 export default globalStyles;

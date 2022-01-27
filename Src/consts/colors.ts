@@ -8,10 +8,12 @@ interface Types {
     grey: string;
     red: string;
     lightBlue: string;
+    gradientLight: string;
+    gradientDark: string;
 }
 
 export const colors: Types = {
-    main: '#00b894',
+    main: '#218c74',
     white: 'white',
     black: 'black',
     background: '#fafafa',
@@ -20,4 +22,6 @@ export const colors: Types = {
     grey: '#b2bec3',
     red: '#ea8685',
     lightBlue: '#0096FF',
+    gradientLight: '#C9FFBF',
+    gradientDark: '#FFAFBD',
 };

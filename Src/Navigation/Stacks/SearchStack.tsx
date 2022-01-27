@@ -7,7 +7,7 @@ const Stack = createStackNavigator();
 const SearchStack = () => {
     const {Navigator, Screen} = Stack;
 
-    return <Navigator></Navigator>;
+    // return <Navigator></Navigator>;
 };
 
 export default SearchStack;

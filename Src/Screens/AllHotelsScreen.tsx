@@ -1,9 +1,8 @@
 import React from 'react';
-import {View} from 'react-native';
 
 import AllHotelsContainer from '../containers/allHotelsContainer/allHotelsContainer';
-
-import globalStyles from '../../styles';
+import {LinearGradient} from 'expo-linear-gradient';
+import {colors} from '../consts/colors';
 
 interface Props {}
 
@@ -11,9 +10,9 @@ const AllHotelsScreen: React.FC<Props> = ({}) => {
     const onHotelItem = () => {};
 
     return (
-        <View style={globalStyles.mainScreen}>
+        <LinearGradient colors={[colors.gradientDark, colors.gradientLight]}>
             <AllHotelsContainer onHotelItem={onHotelItem} />
-        </View>
+        </LinearGradient>
     );
 };
 

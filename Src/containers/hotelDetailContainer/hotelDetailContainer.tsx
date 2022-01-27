@@ -1,4 +1,5 @@
 import {Ionicons} from '@expo/vector-icons';
+import {LinearGradient} from 'expo-linear-gradient';
 import React from 'react';
 import {
     Text,
@@ -81,6 +82,7 @@ const HotelDetailContainer: React.FC<Props> = ({}) => {
                         <Text style={st.priceLabel}>-{discountPercent}%</Text>
                     </View>
                 </View>
+
                 <View style={st.contactContainer}>
                     <Text>Contact:</Text>
                     <Text>{data.email}</Text>

@@ -1,13 +1,5 @@
 import React, {useEffect} from 'react';
-import {
-    View,
-    Button,
-    Text,
-    TextInput,
-    FlatList,
-    TouchableOpacity,
-    StyleSheet,
-} from 'react-native';
+import {View, Text} from 'react-native';
 import MainPageContainer from '../containers/mainPage/mainPage';
 import {HeaderButton} from '../components';
 
@@ -16,6 +8,8 @@ import globalStyles from '../../styles';
 
 import {useNavigation} from '@react-navigation/native';
 import {FeedStackNavProp, RootStackNavProp} from '../Navigation/Types';
+
+import st from '../../styles';
 
 interface Props {}
 
@@ -51,6 +45,7 @@ const MainScreen: React.FC<Props> = ({}) => {
                     onPress={onRegistration}
                 />
             ),
+            headerLeft: () => <Text style={st.username}>Davit Darsalia</Text>,
         });
     });
 

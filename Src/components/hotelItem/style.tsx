@@ -10,7 +10,7 @@ const st = StyleSheet.create({
         marginHorizontal: 10,
         width: 300,
         alignSelf: 'center',
-        height: 450,
+        height: 550,
         shadowColor: 'rgba(0,0,0,.3)',
         shadowOffset: {
             width: 5,
