@@ -1,7 +1,7 @@
 import React, {useState} from 'react';
 import {Button, SafeAreaView, View} from 'react-native';
 
-import {CustomInput} from '../../components/customInput/CustomInput';
+import CustomInput from '../../components/customInput/CustomInput';
 import st from './style';
 
 import {Formik} from 'formik';
