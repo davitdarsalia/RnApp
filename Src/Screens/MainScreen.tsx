@@ -1,13 +1,5 @@
 import React, {useEffect} from 'react';
-import {
-    View,
-    Button,
-    Text,
-    TextInput,
-    FlatList,
-    TouchableOpacity,
-    StyleSheet,
-} from 'react-native';
+import {View, Text} from 'react-native';
 import MainPageContainer from '../containers/mainPage/mainPage';
 import {HeaderButton} from '../components';
 
