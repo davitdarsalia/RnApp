@@ -10,6 +10,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {BlurView} from 'expo-blur';
 
 import {CustomButton} from '../../components/customButton/customButton';
+import {useNavigation} from '@react-navigation/native';
 
 interface Props {
     onReg: (
@@ -21,6 +22,12 @@ interface Props {
 }
 
 const RegistrationContainer: React.FC<Props> = ({onReg = () => {}}) => {
+    const {navigate} = useNavigation();
+
+    const onDummyRegistration = () => {
+        navigate('mainScreen');
+    };
+
     return (
         <SafeAreaView style={st.container}>
             <Formik
@@ -69,7 +76,7 @@ const RegistrationContainer: React.FC<Props> = ({onReg = () => {}}) => {
                                     value={values.email}
                                 />
                                 <CustomButton
-                                    onPress={handleSubmit}
+                                    onPress={onDummyRegistration}
                                     label="Register"
                                 />
                             </BlurView>
