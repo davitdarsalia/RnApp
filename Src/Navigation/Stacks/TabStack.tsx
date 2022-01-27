@@ -40,7 +40,7 @@ const TabStack = () => {
                                   <MaterialIcons
                                       name="dynamic-feed"
                                       size={36}
-                                      color={colors.black}
+                                      color={colors.main}
                                   />
                               ))
                             : (icon = (
@@ -56,7 +56,7 @@ const TabStack = () => {
                                   <MaterialCommunityIcons
                                       name="cloud-search"
                                       size={36}
-                                      color={colors.black}
+                                      color={colors.main}
                                   />
                               ))
                             : (icon = (
@@ -72,7 +72,7 @@ const TabStack = () => {
                                   <FontAwesome
                                       name="map"
                                       size={34}
-                                      color={colors.black}
+                                      color={colors.main}
                                   />
                               ))
                             : (icon = (

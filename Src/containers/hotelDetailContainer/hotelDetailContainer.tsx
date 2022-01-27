@@ -1,4 +1,5 @@
 import {Ionicons} from '@expo/vector-icons';
+import {useNavigation} from '@react-navigation/core';
 import {LinearGradient} from 'expo-linear-gradient';
 import React from 'react';
 import {
@@ -12,24 +13,31 @@ import {
 import {Rating} from 'react-native-ratings';
 
 import {colors} from '../../consts/colors';
+import {UseTypeSelector} from '../../Store/Hooks/CustomSelector';
 import st from './style';
 
 interface Props {}
 
 const HotelDetailContainer: React.FC<Props> = ({}) => {
-    const data = {
-        name: "maria's hotel",
-        location: 'marias place',
-        price: 200,
-        discount_price: 150,
-        email: 'mariahotel@gmail.com',
-        phone: '995598000010',
-        description:
-            'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
-        first_photo: 'images-1641984364318.jpg',
-        rating: 3.5,
-        user_id: 3,
-    };
+    // const data = {
+    //     name: "maria's hotel",
+    //     location: 'marias place',
+    //     price: 200,
+    //     discount_price: 150,
+    //     email: 'mariahotel@gmail.com',
+    //     phone: '995598000010',
+    //     description:
+    //         'Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+    //     first_photo: 'images-1641984364318.jpg',
+    //     rating: 3.5,
+    //     user_id: 3,
+    // };
+    const data = UseTypeSelector(
+        (state) => state.feedReducer.hotels.allHotels[4],
+    );
+    const {navigate} = useNavigation();
+
+    const rating = 3.5;
 
     const discountPercent = Math.round(
         ((data.price - data.discount_price) / data.price) * 100,
@@ -40,7 +48,7 @@ const HotelDetailContainer: React.FC<Props> = ({}) => {
             <TouchableOpacity style={st.imageContainer} onPress={() => {}}>
                 <Image
                     source={{
-                        uri: 'https://cf.bstatic.com/xdata/images/hotel/max500/63471279.jpg?k=d2add6b91dec5f9ff6bf5f7d33a3250f906bc19987afa8872805f605a72802a1&o=&hp=1',
+                        uri: `data:image/gif;base64,${data.first_photo}`,
                     }}
                     style={st.image}
                 />
@@ -51,6 +59,7 @@ const HotelDetailContainer: React.FC<Props> = ({}) => {
                         <Text style={st.label}>{data.name}</Text>
                         <View style={st.locationContainer}>
                             <Ionicons
+                                onPress={() => navigate('map')}
                                 name="ios-location-outline"
                                 size={26}
                                 color={colors.main}
@@ -58,10 +67,10 @@ const HotelDetailContainer: React.FC<Props> = ({}) => {
                             <Text style={st.location}>{data.location}</Text>
                         </View>
                     </View>
-                    <View>
+                    <View style={{position: 'absolute', right: 20}}>
                         <Rating
                             imageSize={20}
-                            startingValue={data.rating}
+                            startingValue={rating}
                             readonly={true}
                         />
                     </View>

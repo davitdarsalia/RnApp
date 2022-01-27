@@ -18,6 +18,9 @@ const st = StyleSheet.create({
         borderRadius: 5,
         marginVertical: 10,
         position: 'relative',
+        color: colors.main,
+        fontSize: 17,
+        fontWeight: '500',
     },
     passwordIcon: {
         position: 'absolute',

@@ -47,7 +47,7 @@ const MainScreen: React.FC<Props> = ({}) => {
             ),
             headerLeft: () => <Text style={st.username}>Davit Darsalia</Text>,
         });
-    });
+    }, []);
 
     return (
         <View style={globalStyles.mainScreen}>

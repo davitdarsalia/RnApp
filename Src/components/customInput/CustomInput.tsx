@@ -20,6 +20,7 @@ interface Props {
     isPasswordInput?: boolean;
     label: string;
     passwordInput?: boolean;
+    onChange: (text: string) => void;
 }
 
 const CustomInput: React.FC<Props> = ({
@@ -27,38 +28,39 @@ const CustomInput: React.FC<Props> = ({
     isPasswordInput,
     label,
     passwordInput,
+    onChange,
 }) => {
     const [text, setText] = useState<string>(value);
     const [visible, setVisible] = useState<boolean>(false);
 
-    const passwordIcon =
-        visible && passwordInput ? (
-            <TouchableOpacity
-                onPress={() => setVisible((prev) => !prev)}
-                style={st.passwordIcon}>
-                <Entypo name="eye" size={24} color="black" />
-            </TouchableOpacity>
-        ) : (
-            <TouchableOpacity
-                style={st.passwordIcon}
-                onPress={() => setVisible((prev) => !prev)}>
-                <Entypo name="eye-with-line" size={24} color="black" />
-            </TouchableOpacity>
-        );
+    // const passwordIcon = passwordInput ? (
+    //     <TouchableOpacity
+    //         onPress={() => setVisible((prev) => !prev)}
+    //         style={st.passwordIcon}>
+    //         <Entypo name="eye" size={24} color="black" />
+    //     </TouchableOpacity>
+    // ) : (
+    //     <TouchableOpacity
+    //         style={st.passwordIcon}
+    //         onPress={() => setVisible((prev) => !prev)}>
+    //         <Entypo name="eye-with-line" size={24} color="black" />
+    //     </TouchableOpacity>
+    // );
 
     return (
         <View style={st.container}>
             <TextInput
                 autoCapitalize="none"
+                placeholder={label}
                 secureTextEntry={isPasswordInput}
                 autoCorrect={false}
-                onChangeText={(text) => setText(text)}
+                onChangeText={onChange}
                 value={text}
                 style={st.inputStyle}
             />
-            <View>{passwordIcon}</View>
+            {/* <View>{passwordIcon}</View> */}
         </View>
     );
 };
 
-export default React.memo(CustomInput);
+export default CustomInput;

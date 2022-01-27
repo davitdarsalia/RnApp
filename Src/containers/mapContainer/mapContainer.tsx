@@ -22,7 +22,9 @@ export const MapContainer: React.FC<Props> = ({}) => {
     const {navigate} = useNavigation();
 
     const onMarkerPress = () => {
-        navigate('hotelDetailScreen');
+        setTimeout(() => {
+            navigate('hotelDetailScreen');
+        }, 1500);
     };
 
     return (
@@ -51,7 +53,7 @@ export const MapContainer: React.FC<Props> = ({}) => {
                             description={`${coordinate.price}`}
                             pinColor={colors.red}
                             tappable
-                            onPress={() => console.log(coordinate.name)}
+                            onPress={onMarkerPress}
                         />
                     );
                 })}

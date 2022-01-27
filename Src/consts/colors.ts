@@ -22,6 +22,6 @@ export const colors: Types = {
     grey: '#b2bec3',
     red: '#ea8685',
     lightBlue: '#0096FF',
-    gradientLight: '#C9FFBF',
-    gradientDark: '#FFAFBD',
+    gradientLight: '#2BC0E4',
+    gradientDark: '#EAECC6',
 };
