@@ -11,6 +11,8 @@ import {TouchableOpacity} from 'react-native-gesture-handler';
 import {MaterialIcons} from '@expo/vector-icons';
 import {MaterialCommunityIcons} from '@expo/vector-icons';
 import {FontAwesome} from '@expo/vector-icons';
+import {colors} from '../../consts/colors';
+import AllHotelsScreen from '../../Screens/AllHotelsScreen';
 
 const Tab = createBottomTabNavigator<TabStackScreenList>();
 
@@ -20,6 +22,10 @@ const TabStack = () => {
         <Navigator
             screenOptions={({route}) => ({
                 headerShown: false,
+                tabBarStyle: {
+                    backgroundColor: colors.gradientLight,
+                },
+
                 tabBarLabelStyle: {
                     color: 'rgba(0,0,0,.7)',
                     fontWeight: '500',
@@ -34,7 +40,7 @@ const TabStack = () => {
                                   <MaterialIcons
                                       name="dynamic-feed"
                                       size={36}
-                                      color="green"
+                                      color={colors.main}
                                   />
                               ))
                             : (icon = (
@@ -50,7 +56,7 @@ const TabStack = () => {
                                   <MaterialCommunityIcons
                                       name="cloud-search"
                                       size={36}
-                                      color="green"
+                                      color={colors.main}
                                   />
                               ))
                             : (icon = (
@@ -66,7 +72,7 @@ const TabStack = () => {
                                   <FontAwesome
                                       name="map"
                                       size={34}
-                                      color="green"
+                                      color={colors.main}
                                   />
                               ))
                             : (icon = (
@@ -83,7 +89,18 @@ const TabStack = () => {
             })}>
             <Screen name="Feed" component={FeedStack} />
 
-            <Screen name="Search" component={MapStack} />
+            <Screen
+                name="Search"
+                component={AllHotelsScreen}
+                options={{
+                    headerShown: true,
+                    headerTitle: 'Search Hotel',
+                    headerTintColor: colors.main,
+                    headerStyle: {
+                        backgroundColor: colors.gradientDark,
+                    },
+                }}
+            />
             <Screen name="Map" component={MapStack} />
         </Navigator>
     );

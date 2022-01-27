@@ -1,3 +1,4 @@
+import {LinearGradient} from 'expo-linear-gradient';
 import React, {useCallback, useEffect} from 'react';
 import {View, FlatList, ActivityIndicator} from 'react-native';
 import HotelItem from '../../components/hotelItem/index';
@@ -30,7 +31,7 @@ const AllHotelsContainer: React.FC<Props> = ({onHotelItem}) => {
             {}
             <FlatList
                 data={allHotels}
-                showsHorizontalScrollIndicator={false}
+                showsVerticalScrollIndicator={false}
                 keyExtractor={(item) => `${item.id} ${Date.now()}`}
                 renderItem={renderItem}
             />

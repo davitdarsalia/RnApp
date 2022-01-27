@@ -53,37 +53,7 @@ const RegistrationContainer: React.FC<Props> = ({onReg = () => {}}) => {
                             showsVerticalScrollIndicator={false}
                             scrollEnabled
                             enableOnAndroid>
-                            <View
-                                style={{
-                                    width: 100,
-                                    height: 100,
-                                    backgroundColor: 'purple',
-                                    position: 'absolute',
-                                    left: '35%',
-                                    top: '10%',
-                                }}
-                            />
-                            <View
-                                style={{
-                                    width: 100,
-                                    height: 100,
-                                    backgroundColor: 'teal',
-                                    position: 'absolute',
-                                    left: '35%',
-                                    top: '70%',
-                                }}
-                            />
-                            <View
-                                style={{
-                                    width: 100,
-                                    height: 100,
-                                    backgroundColor: 'dodgerblue',
-                                    position: 'absolute',
-                                    left: '35%',
-                                    top: '40%',
-                                }}
-                            />
-                            <BlurView intensity={50} style={st.innerContainer}>
+                            <BlurView intensity={100} style={st.innerContainer}>
                                 <CustomInput
                                     label="Full Name"
                                     value={values.fullName}

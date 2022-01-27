@@ -1,3 +1,4 @@
+import {LinearGradient} from 'expo-linear-gradient';
 import React from 'react';
 import {Image, ImageBackground, View} from 'react-native';
 
@@ -6,6 +7,8 @@ import RegistrationContainer from '../containers/registrationContainer/Registrat
 
 import {UseCustomDispatch} from '../Store/Hooks/CustomDispatch';
 import {registrationAction} from '../Store/Reducers/authReducer';
+
+import {colors} from '../consts/colors';
 
 interface Props {}
 
@@ -30,16 +33,11 @@ const RegistrationScreen: React.FC<Props> = ({}) => {
     };
 
     return (
-        <View
-            style={[
-                globalStyles.mainScreen,
-                // {backgroundColor: 'rgba(255,132,93,.8)'},
-            ]}>
-            <ImageBackground
-                style={{width: '100%', height: '100%'}}
-                source={{uri: loginBackgroundImgUri}}>
+        <View>
+            <LinearGradient
+                colors={[colors.gradientDark, colors.gradientLight]}>
                 <RegistrationContainer onReg={onRegistration} />
-            </ImageBackground>
+            </LinearGradient>
         </View>
     );
 };

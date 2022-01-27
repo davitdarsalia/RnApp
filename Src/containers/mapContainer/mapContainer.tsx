@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/native';
 import React from 'react';
 import {View} from 'react-native';
 
@@ -17,6 +18,12 @@ export const MapContainer: React.FC<Props> = ({}) => {
     const coords = UseTypeSelector(
         (state) => state.feedReducer.hotels.allHotels,
     );
+
+    const {navigate} = useNavigation();
+
+    const onMarkerPress = () => {
+        navigate('hotelDetailScreen');
+    };
 
     return (
         <View>

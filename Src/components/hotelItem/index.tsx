@@ -20,7 +20,7 @@ const HotelItem: React.FC<Props> = ({item, onHotelItem}) => {
             <TouchableOpacity style={st.imageContainer} onPress={onHotelItem}>
                 <Image
                     source={{
-                        uri: 'https://cf.bstatic.com/xdata/images/hotel/max500/63471279.jpg?k=d2add6b91dec5f9ff6bf5f7d33a3250f906bc19987afa8872805f605a72802a1&o=&hp=1',
+                        uri: `data:image/gif;base64,${item.first_photo}`,
                     }}
                     style={st.image}
                 />
@@ -30,13 +30,6 @@ const HotelItem: React.FC<Props> = ({item, onHotelItem}) => {
                     <View style={st.labelCountainer}>
                         <Text style={st.label}>{item.name}</Text>
                         <Text style={st.location}>{item.location}</Text>
-                    </View>
-                    <View>
-                        <Rating
-                            imageSize={20}
-                            startingValue={item.rating}
-                            readonly={true}
-                        />
                     </View>
                 </View>
                 <View style={st.priceContainer}>
@@ -51,6 +44,13 @@ const HotelItem: React.FC<Props> = ({item, onHotelItem}) => {
                     <View style={st.percentBadge}>
                         <Text style={st.priceLabel}>-{discountPercent}%</Text>
                     </View>
+                </View>
+                <View>
+                    <Rating
+                        imageSize={20}
+                        startingValue={item.rating}
+                        readonly={true}
+                    />
                 </View>
             </View>
         </BlurView>
