@@ -39,4 +39,4 @@ const AllHotelsContainer: React.FC<Props> = ({onHotelItem}) => {
     );
 };
 
-export default AllHotelsContainer;
+export default React.memo(AllHotelsContainer);
