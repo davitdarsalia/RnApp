@@ -49,7 +49,7 @@ export const MapContainer: React.FC<Props> = ({}) => {
                             coordinate={coordObj}
                             title={coordinate.name}
                             description={`${coordinate.price}`}
-                            pinColor={colors.main}
+                            pinColor={colors.red}
                             tappable
                             onPress={() => console.log(coordinate.name)}
                         />
