@@ -13,7 +13,7 @@ interface Types {
 }
 
 export const colors: Types = {
-    main: '#218c74',
+    main: '#2c2c54',
     white: 'white',
     black: 'black',
     background: '#fafafa',

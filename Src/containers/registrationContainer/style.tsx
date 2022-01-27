@@ -12,8 +12,8 @@ const st = StyleSheet.create({
     },
 
     innerContainer: {
-        height: 360,
-        width: 360,
+        height: 350,
+        width: 370,
         borderWidth: 1,
         borderColor: colors.main,
         borderRadius: 15,
@@ -22,7 +22,7 @@ const st = StyleSheet.create({
         backgroundColor: 'rgba(0,0,0,.3)',
         justifyContent: 'center',
         overflow: 'hidden',
-        marginTop: 100,
+        marginTop: 120,
     },
 });
 
