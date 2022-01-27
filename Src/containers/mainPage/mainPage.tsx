@@ -1,5 +1,6 @@
 import React, {useCallback, useEffect} from 'react';
-import {View, FlatList} from 'react-native';
+
+import {View, Text, FlatList, TouchableOpacity} from 'react-native';
 
 import {HotelItem} from '../../components';
 import {FetchHotels} from '../../Store/Actions/FeedActions';
