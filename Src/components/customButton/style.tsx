@@ -11,14 +11,14 @@ const st = StyleSheet.create({
         alignSelf: 'center',
         alignItems: 'center',
         justifyContent: 'center',
-        borderColor: colors.lightBlue,
+        borderColor: colors.main,
         borderWidth: 1,
         backgroundColor: colors.main,
     },
     buttonLabel: {
         fontSize: 20,
         fontWeight: '400',
-        color: colors.white,
+        color: colors.gradientLight,
     },
 });
 

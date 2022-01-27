@@ -10,6 +10,7 @@ import {KeyboardAwareScrollView} from 'react-native-keyboard-aware-scroll-view';
 import {BlurView} from 'expo-blur';
 
 import {CustomButton} from '../../components/customButton/customButton';
+import {useNavigation} from '@react-navigation/native';
 
 interface Props {
     onReg: (
@@ -21,6 +22,12 @@ interface Props {
 }
 
 const RegistrationContainer: React.FC<Props> = ({onReg = () => {}}) => {
+    const {navigate} = useNavigation();
+
+    const onDummyRegistration = () => {
+        navigate('mainScreen');
+    };
+
     return (
         <SafeAreaView style={st.container}>
             <Formik
@@ -53,37 +60,7 @@ const RegistrationContainer: React.FC<Props> = ({onReg = () => {}}) => {
                             showsVerticalScrollIndicator={false}
                             scrollEnabled
                             enableOnAndroid>
-                            <View
-                                style={{
-                                    width: 100,
-                                    height: 100,
-                                    backgroundColor: 'purple',
-                                    position: 'absolute',
-                                    left: '35%',
-                                    top: '10%',
-                                }}
-                            />
-                            <View
-                                style={{
-                                    width: 100,
-                                    height: 100,
-                                    backgroundColor: 'teal',
-                                    position: 'absolute',
-                                    left: '35%',
-                                    top: '70%',
-                                }}
-                            />
-                            <View
-                                style={{
-                                    width: 100,
-                                    height: 100,
-                                    backgroundColor: 'dodgerblue',
-                                    position: 'absolute',
-                                    left: '35%',
-                                    top: '40%',
-                                }}
-                            />
-                            <BlurView intensity={50} style={st.innerContainer}>
+                            <BlurView intensity={100} style={st.innerContainer}>
                                 <CustomInput
                                     label="Full Name"
                                     value={values.fullName}
@@ -99,7 +76,7 @@ const RegistrationContainer: React.FC<Props> = ({onReg = () => {}}) => {
                                     value={values.email}
                                 />
                                 <CustomButton
-                                    onPress={handleSubmit}
+                                    onPress={onDummyRegistration}
                                     label="Register"
                                 />
                             </BlurView>

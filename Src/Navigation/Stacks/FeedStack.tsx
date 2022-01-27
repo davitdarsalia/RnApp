@@ -25,7 +25,7 @@ const FeedStack: React.FC<Props> = () => {
                     title: 'Hotel Midnight',
                     headerTintColor: colors.main,
                     headerStyle: {
-                        backgroundColor: colors.background,
+                        backgroundColor: colors.gradientDark,
                     },
                 }}
             />
@@ -36,7 +36,7 @@ const FeedStack: React.FC<Props> = () => {
                     title: 'Feed',
                     headerTintColor: colors.main,
                     headerStyle: {
-                        backgroundColor: colors.background,
+                        backgroundColor: colors.gradientDark,
                     },
                 }}
             />
@@ -48,7 +48,7 @@ const FeedStack: React.FC<Props> = () => {
                     headerTintColor: colors.main,
                     headerBackTitle: ' ',
                     headerStyle: {
-                        backgroundColor: colors.background,
+                        backgroundColor: colors.gradientDark,
                     },
                 }}
             />
