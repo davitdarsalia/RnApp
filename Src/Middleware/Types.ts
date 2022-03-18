@@ -92,6 +92,11 @@ export interface customErrorType {
    status?: number;
 }
 
+export interface middlewareReturnProps {
+   response?: AxiosResponse;
+   responseError?: customErrorType;
+}
+
 export interface nextActionParams {
    type: string;
    payload: Record<string, any>;
