@@ -18,7 +18,6 @@ const Routes: React.FC = () => {
                headerShown: false,
             }}
             initialRouteName="AuthStack">
-            /* Screens Begin Here */
             <Screen name="AuthStack" component={AuthStack} />
          </Navigator>
       </NavigationContainer>

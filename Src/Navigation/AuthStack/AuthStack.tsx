@@ -16,7 +16,6 @@ const AuthStack: React.FC = () => {
             headerShown: false,
          }}
          initialRouteName="AuthScreen">
-         /* Screens Begin Here */
          <Screen name="AuthScreen" component={AuthScreen} />
       </Navigator>
    );
