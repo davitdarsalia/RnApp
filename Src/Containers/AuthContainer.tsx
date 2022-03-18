@@ -12,5 +12,9 @@ import {
 interface Props {}
 
 export const AuthContainer: React.FC<Props> = ({}) => {
-   return <View></View>;
+   return (
+      <View>
+         <Text>DDD</Text>
+      </View>
+   );
 };
