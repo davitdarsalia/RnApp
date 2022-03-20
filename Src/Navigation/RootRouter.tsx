@@ -4,6 +4,7 @@ import {createStackNavigator} from '@react-navigation/stack';
 
 import {RouteList} from './types';
 import AuthStack from './AuthStack/AuthStack';
+import MainStack from './MainStack/MainStack';
 
 const RootStack = createStackNavigator<RouteList>();
 
@@ -17,8 +18,9 @@ const Routes: React.FC = () => {
                gestureEnabled: true,
                headerShown: false,
             }}
-            initialRouteName="AuthStack">
+            initialRouteName="MainStack">
             <Screen name="AuthStack" component={AuthStack} />
+            <Screen name="MainStack" component={MainStack} />
          </Navigator>
       </NavigationContainer>
    );
