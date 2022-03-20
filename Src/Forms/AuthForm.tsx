@@ -1,5 +1,6 @@
 import {Formik} from 'formik';
 import React from 'react';
+
 import {Input} from '../Primitives/Input/Input';
 import {registrationSchema} from '../ValidationSchemas/AuthValidations';
 
