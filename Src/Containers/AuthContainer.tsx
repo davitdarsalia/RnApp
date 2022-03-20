@@ -9,12 +9,10 @@ import {
    StyleSheet,
 } from 'react-native';
 
+import {AuthForm} from '../Forms/AuthForm';
+
 interface Props {}
 
 export const AuthContainer: React.FC<Props> = ({}) => {
-   return (
-      <View>
-         <Text>DDD</Text>
-      </View>
-   );
+   return <AuthForm />;
 };
