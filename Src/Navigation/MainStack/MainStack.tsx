@@ -2,10 +2,14 @@ import React from 'react';
 import {Dimensions, StyleSheet, Text} from 'react-native';
 import {BlurView} from '@react-native-community/blur';
 
-import DealIcon from '../../../assets/icons/deal.svg';
-import HomeIcon from '../../../assets/icons/home.svg';
-import LoanIcon from '../../../assets/icons/loans.svg';
-import StatisticIcon from '../../../assets/icons/statistics.svg';
+import HomeIcon from '../../../assets/icons/Home.svg';
+import HomeFocusedIcon from '../../../assets/icons/HomeFocused.svg';
+import DealsIcon from '../../../assets/icons/Deals.svg';
+import DealsFocusedIcon from '../../../assets/icons/DealsFocused.svg';
+import LoanIcon from '../../../assets/icons/Loans.svg';
+import LoanFocusedIcon from '../../../assets/icons/LoansFocused.svg';
+import StatisticsIcon from '../../../assets/icons/Statistics.svg';
+import StatisticsFocusedIcon from '../../../assets/icons/StatisticsFocused.svg';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
@@ -54,7 +58,7 @@ const MainStack: React.FC = () => {
                tabBarIcon: ({focused}) => {
                   return (
                      <TouchableOpacity>
-                        <HomeIcon />
+                        {focused ? <HomeIcon /> : <HomeFocusedIcon />}
                      </TouchableOpacity>
                   );
                },
@@ -67,7 +71,7 @@ const MainStack: React.FC = () => {
                tabBarIcon: ({focused}) => {
                   return (
                      <TouchableOpacity>
-                        <DealIcon />
+                        {focused ? <DealsFocusedIcon /> : <DealsIcon />}
                      </TouchableOpacity>
                   );
                },
@@ -80,7 +84,7 @@ const MainStack: React.FC = () => {
                tabBarIcon: ({focused}) => {
                   return (
                      <TouchableOpacity>
-                        <LoanIcon />
+                        {focused ? <LoanFocusedIcon /> : <LoanIcon />}
                      </TouchableOpacity>
                   );
                },
@@ -95,11 +99,12 @@ const MainStack: React.FC = () => {
                },
                tabBarIcon: ({focused}) => {
                   return (
-                     <TouchableOpacity
-                        style={{
-                           backgroundColor: 'red',
-                        }}>
-                        <StatisticIcon />
+                     <TouchableOpacity style={{}}>
+                        {focused ? (
+                           <StatisticsFocusedIcon />
+                        ) : (
+                           <StatisticsIcon />
+                        )}
                      </TouchableOpacity>
                   );
                },
