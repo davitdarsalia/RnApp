@@ -9,7 +9,7 @@ import {
    StyleSheet,
    SafeAreaView,
 } from 'react-native';
-import {AuthContainer} from '../../Containers/AuthContainer';
+import {AuthContainer} from '../../Containers/Auth/AuthContainer';
 
 interface Props {}
 
