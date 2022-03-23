@@ -7,14 +7,15 @@ import {
    FlatList,
    TouchableOpacity,
    StyleSheet,
+   SafeAreaView,
 } from 'react-native';
 
 interface Props {}
 
 export const MyStatistics: React.FC<Props> = ({}) => {
    return (
-      <View>
+      <SafeAreaView>
          <Text>Statistics</Text>
-      </View>
+      </SafeAreaView>
    );
 };
