@@ -7,14 +7,15 @@ import {
    FlatList,
    TouchableOpacity,
    StyleSheet,
+   SafeAreaView,
 } from 'react-native';
 
 interface Props {}
 
 export const MyHome: React.FC<Props> = ({}) => {
    return (
-      <View>
+      <SafeAreaView>
          <Text>Home</Text>
-      </View>
+      </SafeAreaView>
    );
 };

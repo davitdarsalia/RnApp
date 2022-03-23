@@ -7,14 +7,17 @@ import {
    FlatList,
    TouchableOpacity,
    StyleSheet,
+   SafeAreaView,
 } from 'react-native';
+
+import {MyLoansContainer} from '../../Containers/Main/MyLoansContainer';
 
 interface Props {}
 
 export const MyLoans: React.FC<Props> = ({}) => {
    return (
-      <View>
-         <Text>Loans</Text>
-      </View>
+      <SafeAreaView>
+         <MyLoansContainer />
+      </SafeAreaView>
    );
 };

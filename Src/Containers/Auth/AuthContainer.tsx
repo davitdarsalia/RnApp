@@ -7,12 +7,17 @@ import {
    FlatList,
    TouchableOpacity,
    StyleSheet,
+   SafeAreaView,
 } from 'react-native';
 
-import {AuthForm} from '../Forms/AuthForm';
+import {AuthForm} from '../../Forms/AuthForm';
 
 interface Props {}
 
 export const AuthContainer: React.FC<Props> = ({}) => {
-   return <AuthForm />;
+   return (
+      <SafeAreaView>
+         <AuthForm />
+      </SafeAreaView>
+   );
 };
