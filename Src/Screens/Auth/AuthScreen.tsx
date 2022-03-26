@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
    View,
    Button,
@@ -15,13 +15,32 @@ import {AuthContainer} from '../../Containers/Auth/AuthContainer';
 interface Props {}
 
 export const AuthScreen: React.FC<Props> = ({}) => {
+   const [visible, setVisible] = useState<boolean>(true);
+
+   const onSwipeUp = () => {
+      setVisible(true);
+   };
+   const onSwipeDown = () => {
+      setVisible(false);
+   };
+
+   const onSubmit = () => {
+      console.log('dd');
+      setVisible(false);
+   };
+
    return (
       <SafeAreaView
          style={{
             flex: 1,
-            backgroundColor: '#fff',
+            backgroundColor: 'green',
          }}>
-         <AuthContainer />
+         <AuthContainer
+            visible={visible}
+            onSwipeUp={onSwipeUp}
+            onSwipeDown={onSwipeDown}
+            onSubmit={onSubmit}
+         />
       </SafeAreaView>
    );
 };
