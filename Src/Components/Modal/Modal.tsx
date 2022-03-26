@@ -14,7 +14,7 @@ import {
 import Modal from 'react-native-modal';
 import GestureRecognizer from 'react-native-swipe-gestures';
 
-import {styles} from '../Modal/Style';
+import {styles} from './style';
 
 interface Props {
    style?: ViewStyle;
