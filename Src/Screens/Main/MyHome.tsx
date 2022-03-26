@@ -15,5 +15,26 @@ import {ModalComponent} from '../../Components/Modal/Modal';
 interface Props {}
 
 export const MyHome: React.FC<Props> = ({}) => {
-   return <ModalComponent />;
+   const [visible, setVisible] = useState<boolean>(true);
+
+   const onSwipeUp = () => {
+      setVisible(true);
+   };
+   const onSwipeDown = () => {
+      setVisible(false);
+   };
+
+   return (
+      <SafeAreaView
+         style={{
+            flex: 1,
+         }}>
+         <ModalComponent
+            visible={visible}
+            onSwipeDown={onSwipeDown}
+            onSwipeUp={onSwipeUp}>
+            <Text>DDD</Text>
+         </ModalComponent>
+      </SafeAreaView>
+   );
 };
