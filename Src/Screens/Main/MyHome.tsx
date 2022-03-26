@@ -9,18 +9,20 @@ import {
    StyleSheet,
    SafeAreaView,
 } from 'react-native';
+import {BlurGestureModal} from '../../Components/BlurGestureModal/BlurGestureModal';
 
-import {ModalComponent} from '../../Components/Modal/Modal';
+import {BlurModalForm} from '../../Forms/BlurModalForm';
 
 interface Props {}
 
 export const MyHome: React.FC<Props> = ({}) => {
-   const [visible, setVisible] = useState<boolean>(true);
+   const [visible, setVisible] = useState<boolean>(false);
+   console.log(visible, 'Modal');
 
-   const onSwipeUp = () => {
+   const onSwipeLeft = () => {
       setVisible(true);
    };
-   const onSwipeDown = () => {
+   const onSwipeRight = () => {
       setVisible(false);
    };
 
@@ -29,12 +31,12 @@ export const MyHome: React.FC<Props> = ({}) => {
          style={{
             flex: 1,
          }}>
-         <ModalComponent
+         <BlurGestureModal
             visible={visible}
-            onSwipeDown={onSwipeDown}
-            onSwipeUp={onSwipeUp}>
-            <Text>DDD</Text>
-         </ModalComponent>
+            onSwipeLeft={onSwipeLeft}
+            onSwipeRight={onSwipeRight}>
+            <BlurModalForm />
+         </BlurGestureModal>
       </SafeAreaView>
    );
 };
