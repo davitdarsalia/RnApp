@@ -1,19 +1,25 @@
 import {Formik} from 'formik';
 import React from 'react';
+import {BlurButton} from '../Components/BlurButton/BlurButton';
+import {BlurButtonVariant} from '../Constants/Enums';
 
 import {Input} from '../Primitives/Input/Input';
 import {registrationSchema} from '../ValidationSchemas/AuthValidations';
 
-interface Props {}
+interface Props {
+   onSubmit: () => void;
+}
 
-export const AuthForm: React.FC<Props> = ({}) => {
+export const AuthForm: React.FC<Props> = ({onSubmit = () => {}}) => {
    return (
       <Formik
          initialValues={{
             firstName: '',
             lastName: '',
          }}
-         onSubmit={() => {}}
+         onSubmit={() => {
+            onSubmit();
+         }}
          validationSchema={registrationSchema}>
          {({
             handleBlur,
@@ -26,7 +32,7 @@ export const AuthForm: React.FC<Props> = ({}) => {
             setFieldTouched,
             setFieldError,
          }) => {
-            console.log(values);
+            console.log(errors);
             return (
                <>
                   <Input
@@ -44,6 +50,15 @@ export const AuthForm: React.FC<Props> = ({}) => {
                         setFieldValue('lastName', val);
                      }}
                      maxLength={65}
+                  />
+                  <BlurButton
+                     wrapperStyle={{
+                        // backgroundColor: '#fff',
+                        borderRadius: 5,
+                        backgroundColor: 'rgba(255,0,0,.8)',
+                     }}
+                     variant={BlurButtonVariant.large}
+                     btnLabel={'Submit'}
                   />
                </>
             );

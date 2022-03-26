@@ -18,7 +18,7 @@ const Routes: React.FC = () => {
                gestureEnabled: true,
                headerShown: false,
             }}
-            initialRouteName="MainStack">
+            initialRouteName="AuthStack">
             <Screen name="AuthStack" component={AuthStack} />
             <Screen name="MainStack" component={MainStack} />
          </Navigator>
