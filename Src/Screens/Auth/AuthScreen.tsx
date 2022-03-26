@@ -1,3 +1,4 @@
+import {useNavigation} from '@react-navigation/core';
 import React, {useState} from 'react';
 import {
    View,
@@ -8,14 +9,18 @@ import {
    TouchableOpacity,
    StyleSheet,
    SafeAreaView,
+   PushNotificationIOS,
 } from 'react-native';
 
 import {AuthContainer} from '../../Containers/Auth/AuthContainer';
+import {RootStackGenericProp} from '../../Navigation/types';
 
 interface Props {}
 
 export const AuthScreen: React.FC<Props> = ({}) => {
    const [visible, setVisible] = useState<boolean>(true);
+
+   const {push} = useNavigation<RootStackGenericProp<'MainStack'>>();
 
    const onSwipeUp = () => {
       setVisible(true);
@@ -25,8 +30,8 @@ export const AuthScreen: React.FC<Props> = ({}) => {
    };
 
    const onSubmit = () => {
-      console.log('dd');
       setVisible(false);
+      push('MainStack');
    };
 
    return (
