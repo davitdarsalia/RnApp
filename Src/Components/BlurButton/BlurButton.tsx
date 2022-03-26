@@ -21,6 +21,7 @@ interface Props {
    blurStyle?: StyleProp<ViewStyle>;
    variant: string;
    btnLabel: string;
+   onPress: () => void;
 }
 
 export const BlurButton: React.FC<Props> = ({
@@ -29,6 +30,7 @@ export const BlurButton: React.FC<Props> = ({
    variant,
    children,
    btnLabel,
+   onPress = () => {},
 }) => {
    let wrapper: StyleProp<ViewStyle>;
    switch (variant) {
@@ -41,7 +43,7 @@ export const BlurButton: React.FC<Props> = ({
    }
 
    return (
-      <TouchableOpacity>
+      <TouchableOpacity onPress={onPress}>
          <BlurView blurType="light" style={[wrapper, wrapperStyle, blurStyle]}>
             {children ? (
                children
