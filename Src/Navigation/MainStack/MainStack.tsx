@@ -25,7 +25,7 @@ const MainStackNavigator = createBottomTabNavigator<BottomTabsNavigator>();
 
 const MainStack: React.FC = () => {
    const {Navigator, Screen} = MainStackNavigator;
-   const {width, height} = Dimensions.get('screen');
+   const {width} = Dimensions.get('screen');
 
    return (
       <Navigator

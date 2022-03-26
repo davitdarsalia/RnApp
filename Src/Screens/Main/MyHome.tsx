@@ -1,4 +1,4 @@
-import React from 'react';
+import React, {useState} from 'react';
 import {
    View,
    Button,
@@ -10,12 +10,10 @@ import {
    SafeAreaView,
 } from 'react-native';
 
+import {ModalComponent} from '../../Components/Modal/Modal';
+
 interface Props {}
 
 export const MyHome: React.FC<Props> = ({}) => {
-   return (
-      <SafeAreaView>
-         <Text>Home</Text>
-      </SafeAreaView>
-   );
+   return <ModalComponent />;
 };
