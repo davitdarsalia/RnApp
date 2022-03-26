@@ -1,3 +1,4 @@
+import {BlurView} from '@react-native-community/blur';
 import React, {useState} from 'react';
 import {
    View,
@@ -7,30 +8,46 @@ import {
    FlatList,
    TouchableOpacity,
    StyleSheet,
+   ViewStyle,
 } from 'react-native';
 
 import Modal from 'react-native-modal';
 import GestureRecognizer from 'react-native-swipe-gestures';
 
-interface Props {}
+import {styles} from '../Modal/Style';
 
-export const ModalComponent: React.FC<Props> = ({}) => {
-   const [visible, setVisible] = useState<boolean>(true);
+interface Props {
+   style?: ViewStyle;
+   visible: boolean;
+   children: Element;
+   onSwipeDown: () => void;
+   onSwipe?: () => void;
+   onSwipeUp?: () => void;
+}
+
+export const ModalComponent: React.FC<Props> = ({
+   style,
+   visible,
+   children,
+   onSwipe = () => {},
+   onSwipeUp = () => {},
+   onSwipeDown = () => {},
+}) => {
    return (
       <GestureRecognizer
-         style={{
-            flex: 1,
-         }}
-         onSwipeUp={() => setVisible(true)}
-         onSwipeDown={() => setVisible(false)}>
-         <View
-            style={{
-               paddingBottom: 100,
-            }}>
-            <Modal isVisible={visible}>
-               <View
+         style={styles.gestureWrapper}
+         onSwipeUp={onSwipeUp}
+         onSwipeDown={onSwipeDown}
+         onSwipe={onSwipe}>
+         <View>
+            <Modal
+               backdropColor="transparent"
+               animationIn="bounceInUp"
+               isVisible={visible}>
+               <BlurView
+                  blurType="light"
                   style={{
-                     backgroundColor: 'white',
+                     marginTop: 10,
                      height: '70%',
                      width: '111%',
                      position: 'absolute',
@@ -38,7 +55,13 @@ export const ModalComponent: React.FC<Props> = ({}) => {
                      left: '-5.5%',
                      alignSelf: 'flex-start',
                      borderRadius: 30,
-                  }}></View>
+                     overflow: 'hidden',
+                     alignItems: 'center',
+                     padding: '5%',
+                     ...style,
+                  }}>
+                  {children}
+               </BlurView>
             </Modal>
          </View>
       </GestureRecognizer>
