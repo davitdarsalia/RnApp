@@ -32,7 +32,6 @@ export const AuthForm: React.FC<Props> = ({onSubmit = () => {}}) => {
             setFieldTouched,
             setFieldError,
          }) => {
-            console.log(errors);
             return (
                <>
                   <Input
@@ -52,8 +51,8 @@ export const AuthForm: React.FC<Props> = ({onSubmit = () => {}}) => {
                      maxLength={65}
                   />
                   <BlurButton
+                     onPress={handleSubmit}
                      wrapperStyle={{
-                        // backgroundColor: '#fff',
                         borderRadius: 5,
                         backgroundColor: 'rgba(255,0,0,.8)',
                      }}
