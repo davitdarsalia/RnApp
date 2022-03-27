@@ -8,6 +8,7 @@ import {
    TouchableOpacity,
    StyleSheet,
    SafeAreaView,
+   ImageBackground,
 } from 'react-native';
 import {BlurGestureModal} from '../../Components/BlurGestureModal/BlurGestureModal';
 

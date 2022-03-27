@@ -14,7 +14,6 @@ export const styles = StyleSheet.create({
       width: width,
       height: height,
       backgroundColor: 'rgba(0,0,0,.3)',
-      position: 'absolute',
       left: -(width * 0.05),
       zIndex: 100,
    },
