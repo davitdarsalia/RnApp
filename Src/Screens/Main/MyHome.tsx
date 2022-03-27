@@ -1,4 +1,4 @@
-import React, {useState} from 'react';
+import React, {useEffect, useState} from 'react';
 import {
    View,
    Button,
@@ -18,7 +18,10 @@ interface Props {}
 
 export const MyHome: React.FC<Props> = ({}) => {
    const [visible, setVisible] = useState<boolean>(false);
-   console.log(visible, 'Modal');
+
+   useEffect(() => {
+      setVisible(false);
+   }, []);
 
    const onSwipeLeft = () => {
       setVisible(true);

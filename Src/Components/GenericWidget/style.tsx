@@ -13,4 +13,14 @@ export const styles = StyleSheet.create({
       margin: 5,
       alignSelf: 'center',
    },
+   resizedWidgetWrapper: {
+      width: width,
+      height: height,
+      // borderRadius: width * 0.05,
+      overflow: 'hidden',
+      padding: width * 0.05,
+      marginVertical: width * 0.02,
+      margin: 5,
+      alignSelf: 'center',
+   },
 });

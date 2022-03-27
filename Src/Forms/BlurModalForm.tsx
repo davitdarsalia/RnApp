@@ -1,4 +1,4 @@
-import React, {useCallback} from 'react';
+import React, {useCallback, useState} from 'react';
 import {FlatList, Text, View} from 'react-native';
 
 import {Formik} from 'formik';
@@ -6,47 +6,27 @@ import {Formik} from 'formik';
 import {Input} from '../Primitives/Input/Input';
 
 import {searchValue} from '../ValidationSchemas/AuthValidations';
-import {GenericVidget} from '../Components/GenericVidget/GenericVidget';
-import {BlurView} from '@react-native-community/blur';
+import {GenericWidget} from '../Components/GenericWidget/GenericWidget';
+import {WidgetData} from '../Constants/RandomDataGenerator';
+
+import Modal from 'react-native-modal';
+import {RegularWidget} from '../Components/RegularWidget/RegularWidget';
 
 interface Props {
    onSubmit?: () => void;
 }
 
-const data = [
-   {
-      id: `${Math.random() * Math.random() + 31}`,
-   },
-   {
-      id: `${Math.random() * Math.random() + 31}`,
-   },
-   {
-      id: `${Math.random() * Math.random() + 31}`,
-   },
-   {
-      id: `${Math.random() * Math.random() + 31}`,
-   },
-   {
-      id: `${Math.random() * Math.random() + 31}`,
-   },
-   {
-      id: `${Math.random() * Math.random() + 31}`,
-   },
-   {
-      id: `${Math.random() * Math.random() + 31}`,
-   },
-   {
-      id: `${Math.random() * Math.random() + 31}`,
-   },
-   {
-      id: `${Math.random() * Math.random() + 31}`,
-   },
-   {
-      id: `${Math.random() * Math.random() + 31}`,
-   },
-];
-
 export const BlurModalForm: React.FC<Props> = ({onSubmit = () => {}}) => {
+   const [resizedWidget, setResizedWidget] = useState<boolean>(false);
+
+   const onResizeWidget = useCallback(() => {
+      setResizedWidget(true);
+   }, [resizedWidget]);
+
+   const onDismiss = useCallback(() => {
+      setResizedWidget(false);
+   }, [resizedWidget]);
+
    return (
       <Formik
          initialValues={{
@@ -88,15 +68,27 @@ export const BlurModalForm: React.FC<Props> = ({onSubmit = () => {}}) => {
                      numColumns={2}
                      initialNumToRender={8}
                      renderItem={({item}) => (
-                        <GenericVidget
+                        <GenericWidget
                            key={item.id}
-                           onLongPress={() => {}}
+                           onLongPress={onResizeWidget}
                            onPress={() => {}}>
                            <Text>DD</Text>
-                        </GenericVidget>
+                        </GenericWidget>
                      )}
-                     data={data}
+                     data={WidgetData}
                   />
+
+                  {resizedWidget && (
+                     <Modal
+                        animationIn={'slideInRight'}
+                        animationOut="slideOutLeft"
+                        backdropColor="white"
+                        isVisible={resizedWidget}>
+                        <RegularWidget onModalDismiss={onDismiss}>
+                           <Text>DDD</Text>
+                        </RegularWidget>
+                     </Modal>
+                  )}
                </>
             );
          }}

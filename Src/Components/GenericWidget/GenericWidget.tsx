@@ -9,24 +9,27 @@ import {
    TouchableOpacity,
    StyleSheet,
 } from 'react-native';
+
 import {styles} from './style';
 
 interface Props {
+   children: Element;
    onPress: () => void;
    onLongPress?: () => void;
-   children: Element;
 }
 
-export const GenericVidget: React.FC<Props> = ({
+export const GenericWidget: React.FC<Props> = ({
    children,
    onPress = () => {},
    onLongPress = () => {},
 }) => {
    return (
       <TouchableOpacity onPress={onPress} onLongPress={onLongPress}>
-         <BlurView style={styles.widgetWrapper} blurType="light">
-            {children}
-         </BlurView>
+         <>
+            <BlurView style={styles.widgetWrapper} blurType="light">
+               {children}
+            </BlurView>
+         </>
       </TouchableOpacity>
    );
 };

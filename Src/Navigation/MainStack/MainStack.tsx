@@ -13,7 +13,7 @@ import StatisticsFocusedIcon from '../../../assets/icons/StatisticsFocused.svg';
 
 import {createBottomTabNavigator} from '@react-navigation/bottom-tabs';
 
-import {BottomTabsNavigator} from '../types';
+import {BottomTabsScreenList} from '../types';
 
 import {MyHome} from '../../Screens/Main/MyHome';
 import {MyDeals} from '../../Screens/Main/MyDeals';
@@ -21,7 +21,7 @@ import {MyLoans} from '../../Screens/Main/MyLoans';
 import {MyStatistics} from '../../Screens/Main/MyStatistics';
 import {TouchableOpacity} from 'react-native-gesture-handler';
 
-const MainStackNavigator = createBottomTabNavigator<BottomTabsNavigator>();
+const MainStackNavigator = createBottomTabNavigator<BottomTabsScreenList>();
 
 const MainStack: React.FC = () => {
    const {Navigator, Screen} = MainStackNavigator;
