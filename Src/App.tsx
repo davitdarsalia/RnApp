@@ -3,7 +3,7 @@ import {Provider} from 'react-redux';
 import {PersistGate} from 'redux-persist/integration/react';
 
 import Routes from './Navigation/RootRouter';
-import {persistor, store} from './Store/StoreConfig';
+import {store, persistor} from './Store/config';
 
 const App = () => {
    return (
