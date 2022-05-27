@@ -47,7 +47,10 @@ export const Button: React.FC<Props> = ({
       accessible={true}
       accessibilityLabel={accessibilityLabel}
       testID={accessibilityLabel}
-      style={[ButtonStyles.wrapper, style]}
+      style={[
+        disabled ? ButtonStyles.disabledWrapper : ButtonStyles.wrapper,
+        style,
+      ]}
       disabled={disabled}
       hitSlop={hitSlop}
       onPress={!disabled ? onPress : () => {}}

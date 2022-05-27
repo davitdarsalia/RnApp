@@ -76,6 +76,13 @@ const GenericInput: React.FC<Props<any>> = ({
         </View>
       )}
       <TextInput
+        style={[
+          touched && errorText === ""
+            ? InputStyles.textInputFocused
+            : InputStyles.textInputError,
+          !touched && InputStyles.textInput,
+          style,
+        ]}
         onChangeText={onChangeText}
         onBlur={onBlur}
         onFocus={onFocus}
@@ -84,13 +91,6 @@ const GenericInput: React.FC<Props<any>> = ({
         accessibilityLabel={accessibilityLabel}
         testID={accessibilityLabel}
         ref={inputRef}
-        style={[
-          touched && errorText === ""
-            ? InputStyles.textInputFocused
-            : InputStyles.textInputError,
-          !touched && InputStyles.textInput,
-          style,
-        ]}
         value={value}
         keyboardType={keyboardType}
         placeholder={placeholder}

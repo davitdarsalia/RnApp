@@ -1,5 +1,12 @@
 import React, { useEffect, useState } from "react";
-import { Button, SafeAreaView } from "react-native";
+import {
+  Button,
+  KeyboardAvoidingView,
+  Platform,
+  SafeAreaView,
+  ScrollView,
+} from "react-native";
+import { KeyboardAwareScrollView } from "react-native-keyboard-aware-scroll-view";
 
 import * as LocalAuthentication from "expo-local-authentication";
 
@@ -19,11 +26,15 @@ export const AuthContainer: React.FC<Props> = ({}) => {
     };
   }, []);
   return (
-    <SafeAreaView style={{ position: "relative" }}>
+    <KeyboardAwareScrollView
+      enableAutomaticScroll
+      extraHeight={100}
+      style={{ position: "relative", backgroundColor: "#0057B8" }}
+    >
       <WrapperModal>
         <AuthForm />
       </WrapperModal>
       {/* <Button onPress={handleBiometricAuth} title="Scan"></Button> */}
-    </SafeAreaView>
+    </KeyboardAwareScrollView>
   );
 };
