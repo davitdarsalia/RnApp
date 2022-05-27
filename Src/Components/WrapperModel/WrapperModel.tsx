@@ -1,16 +1,17 @@
-import React from "react";
 import {
-  View,
-  Button,
-  Text,
-  TextInput,
-  FlatList,
-  TouchableOpacity,
-  StyleSheet,
-} from "react-native";
+  ReactChild,
+  ReactNode,
+} from "hoist-non-react-statics/node_modules/@types/react";
+import React from "react";
+import { View, StyleProp, ViewStyle } from "react-native";
 
-interface Props {}
+import { ModalStyles } from "./style";
 
-export const WrapperModel: React.FC<Props> = ({}) => {
-  return <View></View>;
+interface Props {
+  children: ReactNode | ReactChild;
+  style?: StyleProp<ViewStyle>;
+}
+
+export const WrapperModal: React.FC<Props> = ({ children }) => {
+  return <View style={ModalStyles.modalWrapper}>{children}</View>;
 };
