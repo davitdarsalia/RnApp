@@ -8,11 +8,20 @@ import { RHeight, RWidth } from "../../Generics/ResponsiveUnits";
 export const InputStyles = StyleSheet.create({
   outerWrapper: {
     marginVertical: RWidth(2),
+    shadowColor: "#000",
+    shadowOffset: {
+      width: 0,
+      height: 4,
+    },
+    shadowOpacity: 0.32,
+    shadowRadius: 5.46,
+
+    elevation: 9,
   },
   errorView: {
     height: RHeight(2.5),
     paddingHorizontal: RWidth(1),
-    right: RHeight(5),
+    right: RHeight(0.3),
     bottom: RHeight(6.5),
     borderRadius: RWidth(0.5),
     position: "absolute",
@@ -21,13 +30,13 @@ export const InputStyles = StyleSheet.create({
   },
   errorTextStyle: {
     fontSize: fontSizes.errorTextSize,
-    color: ColorList.BrightBlue,
+    color: ColorList.ErrorRed,
+    fontWeight: "700",
   },
   textInput: {
     width: RWidth(90),
     height: RHeight(8),
     borderRadius: RWidth(2),
-    borderWidth: 0,
     paddingHorizontal: RWidth(5),
     alignSelf: "center",
     fontSize: fontSizes.inputSize,
@@ -43,7 +52,7 @@ export const InputStyles = StyleSheet.create({
     alignSelf: "center",
     fontSize: fontSizes.inputSize,
     backgroundColor: ColorList.White,
-    borderWidth: 1,
+    borderWidth: RWidth(0.5),
     borderColor: ColorList.EditBlue,
     position: "relative",
     color: ColorList.Blue,
@@ -56,7 +65,7 @@ export const InputStyles = StyleSheet.create({
     alignSelf: "center",
     fontSize: fontSizes.inputSize,
     backgroundColor: ColorList.White,
-    borderWidth: 1,
+    borderWidth: RWidth(0.5),
     borderColor: ColorList.ErrorRed,
     position: "relative",
     color: ColorList.Blue,

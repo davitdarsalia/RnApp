@@ -5,6 +5,7 @@ import { View } from "react-native";
 import GenericInput from "../../Primitives/GenericInput/GenericInput";
 import { Button } from "../../Primitives/Button/Button";
 import { LoginSchema } from "./Validation";
+import { RWidth } from "../../Generics/ResponsiveUnits";
 
 interface Props {}
 
@@ -27,6 +28,7 @@ export const AuthForm: React.FC<Props> = ({}) => {
         setFieldTouched,
         handleSubmit,
       }) => {
+        console.log(errors.email, errors.password);
         return (
           <View>
             <GenericInput
@@ -56,10 +58,16 @@ export const AuthForm: React.FC<Props> = ({}) => {
               errorText={errors.password}
             />
             <Button
-              onPress={handleSubmit}
-              onLongPress={function (): void {
-                throw new Error("Function not implemented.");
+              disabled={
+                errors.email === undefined && errors.password === undefined
+                  ? false
+                  : true
+              }
+              style={{
+                marginTop: RWidth(5),
               }}
+              onPress={handleSubmit}
+              onLongPress={() => console.log("Long Press")}
               title={"Submit"}
             />
           </View>

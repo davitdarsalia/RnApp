@@ -4,16 +4,17 @@ import { RHeight, RWidth } from "../../Generics/ResponsiveUnits";
 
 export const ModalStyles = StyleSheet.create({
   modalWrapper: {
+    width: RWidth(100),
+    height: RHeight(110),
     paddingHorizontal: RWidth(10),
     paddingVertical: RWidth(10),
-    width: RWidth(100),
-    height: RHeight(70),
     backgroundColor: ColorList.White,
-    borderRadius: RWidth(4),
+    borderTopLeftRadius: RWidth(4),
+    borderTopRightRadius: RWidth(4),
     position: "absolute",
-    bottom: RHeight(-100),
+    bottom: RHeight(-140),
     zIndex: 100,
-    shadowColor: "#000000",
+    shadowColor: ColorList.ErrorRed,
     shadowOffset: {
       width: 0,
       height: RWidth(0.1),
