@@ -7,6 +7,7 @@ import {
   TextInput,
   View,
   Text,
+  ViewStyle,
 } from "react-native";
 
 import { ColorList } from "../../Constants/Colors";
@@ -69,9 +70,11 @@ const GenericInput: React.FC<Props<any>> = ({
 }) => {
   return (
     <View style={InputStyles.outerWrapper}>
-      <View style={InputStyles.errorView}>
-        <Text style={InputStyles.errorTextStyle}>Dsdsdsadsaddsd</Text>
-      </View>
+      {touched && errorText != "" && (
+        <View style={InputStyles.errorView}>
+          <Text style={InputStyles.errorTextStyle}>{errorText}</Text>
+        </View>
+      )}
       <TextInput
         onChangeText={onChangeText}
         onBlur={onBlur}
@@ -81,7 +84,13 @@ const GenericInput: React.FC<Props<any>> = ({
         accessibilityLabel={accessibilityLabel}
         testID={accessibilityLabel}
         ref={inputRef}
-        style={[InputStyles.textInput, style]}
+        style={[
+          touched && errorText === ""
+            ? InputStyles.textInputFocused
+            : InputStyles.textInputError,
+          !touched && InputStyles.textInput,
+          style,
+        ]}
         value={value}
         keyboardType={keyboardType}
         placeholder={placeholder}

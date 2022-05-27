@@ -1,16 +1,12 @@
 import React from "react";
 import {
-  View,
-  Text,
-  TextInput,
-  FlatList,
   TouchableOpacity,
-  StyleSheet,
   StyleProp,
   ViewStyle,
   TextStyle,
   ActivityIndicator,
 } from "react-native";
+
 import { ColorList } from "../../Constants/Colors";
 import { Label } from "../Label/Label";
 
@@ -55,12 +51,13 @@ export const Button: React.FC<Props> = ({
       disabled={disabled}
       hitSlop={hitSlop}
       onPress={!disabled ? onPress : () => {}}
+      onLongPress={onLongPress}
       activeOpacity={!disabled ? activeOpacity : 1}
     >
       {loading ? (
         <ActivityIndicator color={ColorList.DarkerWhite} size={"small"} />
       ) : (
-        <Label value={title} />
+        <Label value={title} style={labelStyle} />
       )}
     </TouchableOpacity>
   );

@@ -1,3 +1,5 @@
+import { RFontSize } from "../Generics/ResponsiveUnits";
+
 export enum autoCapitalizeOptions {
   none = "none",
   sentences = "sentences",
@@ -7,5 +9,5 @@ export enum autoCapitalizeOptions {
 
 export enum fontSizes {
   inputSize = 16,
-  errorTextSize = 13,
+  errorTextSize = RFontSize(1.4),
 }
