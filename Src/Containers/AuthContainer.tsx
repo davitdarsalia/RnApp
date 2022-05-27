@@ -5,6 +5,7 @@ import * as LocalAuthentication from "expo-local-authentication";
 
 import { handleBiometricAuth } from "../Generics/authMethod";
 import { AuthForm } from "../Forms/AuthForm/AuthForm";
+import { WrapperModal } from "../Components/WrapperModel/WrapperModel";
 
 interface Props {}
 
@@ -18,9 +19,11 @@ export const AuthContainer: React.FC<Props> = ({}) => {
     };
   }, []);
   return (
-    <SafeAreaView>
-      <Button onPress={handleBiometricAuth} title="Scan"></Button>
-      <AuthForm />
+    <SafeAreaView style={{ position: "relative" }}>
+      <WrapperModal>
+        <AuthForm />
+      </WrapperModal>
+      {/* <Button onPress={handleBiometricAuth} title="Scan"></Button> */}
     </SafeAreaView>
   );
 };
