@@ -14,7 +14,8 @@ declare global {
 }
 
 export type RootStackParamList = {
-  auth: undefined;
+  authStack: undefined;
+  mainStack: undefined;
 };
 
 export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
