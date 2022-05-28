@@ -28,8 +28,10 @@ export const AuthContainer: React.FC<Props> = ({}) => {
   return (
     <KeyboardAwareScrollView
       enableAutomaticScroll
+      scrollEnabled
       extraHeight={100}
-      style={{ position: "relative", backgroundColor: "#0057B8" }}
+      style={{ position: "relative", backgroundColor: "#0057B8", flex: 1 }}
+      resetScrollToCoords={{ x: 0, y: 0 }}
     >
       <WrapperModal>
         <AuthForm />
