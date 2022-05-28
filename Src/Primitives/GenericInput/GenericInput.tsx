@@ -1,51 +1,14 @@
 import React, { RefObject, createRef } from "react";
-import {
-  TextStyle,
-  KeyboardTypeOptions,
-  StyleProp,
-  ReturnKeyTypeOptions,
-  TextInput,
-  View,
-  Text,
-  ViewStyle,
-} from "react-native";
+import { TextInput, View, Text } from "react-native";
 
 import { ColorList } from "../../Constants/Colors";
 import { autoCapitalizeOptions } from "../../Constants/Enums";
 
+import { GenericInputProps } from "../Types";
+
 import { InputStyles } from "./style";
 
-interface Props<T> {
-  value: string;
-  touched: boolean | undefined;
-  errors: string | undefined;
-  accessibilityLabel?: string;
-  style?: StyleProp<TextStyle> | undefined;
-  keyboardType?: KeyboardTypeOptions;
-  placeholder: string;
-  placeholderTextColor?: ColorList;
-  labelTitle?: string;
-  passwordMode?: boolean;
-  warningText?: string;
-  isSearch?: boolean;
-  secureTextEntry?: boolean;
-  maxLength?: number;
-  numberOfLines?: number;
-  autoFocus?: boolean;
-  inputRef?: RefObject<T>;
-  blurOnSubmit?: boolean;
-  returnKeyType?: ReturnKeyTypeOptions;
-  autoCapitalize?: autoCapitalizeOptions;
-  autoCorrect?: boolean;
-  errorText?: string;
-  onChangeText: (val: string) => void;
-  onSubmitEditing?: () => void;
-  onBlur?: () => void;
-  onFocus?: () => void;
-  onEndEditing?: () => void;
-}
-
-const GenericInput: React.FC<Props<any>> = ({
+const GenericInput: React.FC<GenericInputProps<any>> = ({
   accessibilityLabel = "",
   touched = false,
   value = "",
