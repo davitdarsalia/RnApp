@@ -2,6 +2,7 @@ import React from 'react'
 import { View } from 'react-native'
 import { Formik } from 'formik'
 import { useNavigation } from '@react-navigation/native'
+import { RootStackGenericProp } from '../../../types'
 
 import { useCustomDispatch } from '../../Store/Hooks/Hooks'
 import { useAuth } from '../../Hooks/UseAuth'
@@ -10,7 +11,6 @@ import { Button } from '../../Primitives/Button/Button'
 import { LoginSchema } from './Validation'
 import { RWidth } from '../../Generics/ResponsiveUnits'
 import GenericInput from '../../Primitives/GenericInput/GenericInput'
-import { RootStackGenericProp } from '../../../types'
 
 interface Props {}
 
