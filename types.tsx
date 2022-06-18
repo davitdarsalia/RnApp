@@ -1,32 +1,25 @@
-/**
- * Learn more about using TypeScript with React Navigation:
- * https://reactnavigation.org/docs/typescript/
- */
+import { StackNavigationProp } from "@react-navigation/stack";
 
-import { BottomTabScreenProps } from "@react-navigation/bottom-tabs";
-import { CompositeScreenProps } from "@react-navigation/native";
-import { NativeStackScreenProps } from "@react-navigation/native-stack";
-
-declare global {
-  namespace ReactNavigation {
-    interface RootParamList extends RootStackParamList {}
-  }
-}
-
+/*
+  RootStack
+*/
 export type RootStackParamList = {
-  auth: undefined;
+  authStack: undefined;
+  mainStack: undefined;
 };
 
-export type RootStackScreenProps<Screen extends keyof RootStackParamList> =
-  NativeStackScreenProps<RootStackParamList, Screen>;
+export type RootStackGenericProp<T extends keyof RootStackParamList & string> =
+  StackNavigationProp<RootStackParamList, T>;
 
-export type RootTabParamList = {
-  TabOne: undefined;
-  TabTwo: undefined;
+/*
+  BottomTabs
+*/
+export type MainStackParamList = {
+  home: undefined;
+  cart: undefined;
+  favourites: undefined;
+  profile: undefined;
 };
 
-export type RootTabScreenProps<Screen extends keyof RootTabParamList> =
-  CompositeScreenProps<
-    BottomTabScreenProps<RootTabParamList, Screen>,
-    NativeStackScreenProps<RootStackParamList>
-  >;
+export type MainStackScreen<T extends keyof MainStackParamList & string> =
+  StackNavigationProp<MainStackParamList, T>;

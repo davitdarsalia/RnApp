@@ -11,3 +11,8 @@ export enum fontSizes {
   inputSize = 16,
   errorTextSize = RFontSize(1.4),
 }
+
+export enum AuthMethods {
+  Button = "Button",
+  InvisibleComponent = "InvisibleComponent",
+}

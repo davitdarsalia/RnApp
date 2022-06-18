@@ -1,11 +1,18 @@
-import { AuthReducer } from "./Reducers/AuthReducer";
-import { applyMiddleware, combineReducers, createStore } from "redux";
-import thunk from "redux-thunk";
+import { configureStore, MiddlewareArray } from "@reduxjs/toolkit";
+import logger from "redux-logger";
 
-export const RootReducer = combineReducers({
-  auth: AuthReducer,
+import { authSlice } from "./Reducers/AuthReducer";
+
+export const { loginRequest, loginSuccess, loginFailure } = authSlice.actions;
+
+export const store = configureStore({
+  reducer: {
+    auth: authSlice.reducer,
+  },
+  // Apply list of middlewares
+  middleware: new MiddlewareArray().concat(logger),
 });
 
-export const store = createStore(RootReducer, applyMiddleware(thunk));
-
-export type RootState = ReturnType<typeof RootReducer>;
+// Types
+export type AppDispatch = typeof store.dispatch;
+export type RootState = ReturnType<typeof store.getState>;

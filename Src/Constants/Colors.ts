@@ -2,6 +2,7 @@ const tintColorLight = "#2f95dc";
 const tintColorDark = "#fff";
 
 export enum ColorList {
+  NavigationTabPurple = "#403C57",
   Black = "#000",
   Black2 = "#191919",
   DarkGray = "rgba(0,0,0,0.7)",

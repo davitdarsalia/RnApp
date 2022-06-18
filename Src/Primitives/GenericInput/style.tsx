@@ -37,6 +37,7 @@ export const InputStyles = StyleSheet.create({
     width: RWidth(90),
     height: RHeight(8),
     borderRadius: RWidth(2),
+    borderWidth: 0,
     paddingHorizontal: RWidth(5),
     alignSelf: "center",
     fontSize: fontSizes.inputSize,

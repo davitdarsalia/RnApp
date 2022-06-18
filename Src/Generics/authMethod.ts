@@ -2,7 +2,9 @@ import * as LocalAuthentication from "expo-local-authentication";
 
 export const handleBiometricAuth = async () => {
   const biometricAuth = await LocalAuthentication.authenticateAsync({
-    promptMessage: "Login with Biometrics",
+    promptMessage: "Touch To Sign In",
     disableDeviceFallback: true,
   });
+
+  return biometricAuth;
 };

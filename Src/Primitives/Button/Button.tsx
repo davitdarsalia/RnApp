@@ -9,28 +9,11 @@ import {
 
 import { ColorList } from "../../Constants/Colors";
 import { Label } from "../Label/Label";
+import { PrimitiveButtonProps } from "../Types";
 
 import { ButtonStyles } from "./style";
 
-interface Props {
-  onPress: () => void;
-  onLongPress?: () => void;
-  hitSlop?: {
-    left: number;
-    right: number;
-    top: number;
-    bottom: number;
-  };
-  title: string;
-  style?: StyleProp<ViewStyle>;
-  labelStyle?: TextStyle;
-  disabled?: boolean;
-  activeOpacity?: number;
-  loading?: boolean;
-  accessibilityLabel?: string;
-}
-
-export const Button: React.FC<Props> = ({
+export const Button: React.FC<PrimitiveButtonProps> = ({
   title = "",
   onPress = () => {},
   onLongPress = () => {},
