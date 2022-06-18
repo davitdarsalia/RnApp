@@ -19,12 +19,17 @@ export const interruptLoading = () => {
 }
 
 export const useContainer = () => {
-	const loader = () => {
+	const startLoader = () => {
 		startLoading()
 	}
 
+	const interruptLoader = () => {
+		interruptLoading()
+	}
+
 	return {
-		loader
+		startLoader,
+		interruptLoader
 	}
 }
 

@@ -1,31 +1,32 @@
-import React, { PureComponent } from 'react'
-import { View } from 'react-native'
+import React, { PureComponent, useEffect, useState } from 'react'
+import { View, Text } from 'react-native'
 
 import NetInfo from '@react-native-community/netinfo'
 
-export default class ConnectionChecker extends PureComponent {
-	state = {
-		active: false
-	}
+interface Props {}
 
-	componentDidMount() {
+const ConnectionChecker: React.FC<Props> = ({}) => {
+	const [active, setActive] = useState(false)
+
+	useEffect(() => {
 		const unsubscribe = NetInfo.addEventListener(state => {
 			console.log('Connection type', state.type)
 			console.log('Is connected?', state.isConnected)
 		})
 
-		unsubscribe()
+		return () => {
+			unsubscribe()
+		}
+	}, [active])
+
+	const show = () => {
+		setActive(true)
 	}
 
-	show = () => {
-		this.setState({ active: true })
+	const hide = () => {
+		setActive(false)
 	}
 
-	hide = () => {
-		this.setState({ active: false })
-	}
-
-	render() {
-		return this.state.active && <View></View>
-	}
+	return <View>{active && <Text>DD</Text>}</View>
 }
+export default ConnectionChecker
