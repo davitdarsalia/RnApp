@@ -11,3 +11,10 @@ export interface IUserAuth {
 	refresh_token: string
 	refresh_token_exp: string
 }
+
+export interface IUserReg {
+	userid: string
+	createdAt: string
+}
+
+export interface IInitialState extends IUserAuth, IUserReg {}
