@@ -1,17 +1,24 @@
-import React from "react";
+import React from 'react'
+import { Provider } from 'react-redux'
+import { SafeAreaProvider } from 'react-native-safe-area-context'
 
-import { SafeAreaProvider } from "react-native-safe-area-context";
-import { RootNavigator } from "./Src/Navigation/RootRouter";
+import { RootNavigator } from './Src/Navigation/RootRouter'
 
-import { Provider } from "react-redux";
-import { store } from "./Src/Store";
+import { store } from './Src/Store'
+
+import GlobalLoader from './Src/Components/GlobalLoader/GlobalLoader'
+import ConnectionChecker from './Src/Components/ConnectionChecker/ConnectionChecker'
+
+import { LoaderRef } from './Src/Components/GlobalLoader/loaderRef'
 
 export default function App() {
-  return (
-    <Provider store={store}>
-      <SafeAreaProvider>
-        <RootNavigator />
-      </SafeAreaProvider>
-    </Provider>
-  );
+	return (
+		<Provider store={store}>
+			<SafeAreaProvider>
+				<RootNavigator />
+				<GlobalLoader ref={LoaderRef} />
+				<ConnectionChecker />
+			</SafeAreaProvider>
+		</Provider>
+	)
 }

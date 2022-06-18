@@ -1,9 +1,12 @@
 import React from "react";
+
 import { NavigationContainer } from "@react-navigation/native";
 import { createNativeStackNavigator } from "@react-navigation/native-stack";
 import { RootStackParamList } from "../../types";
 import UserInactivity from "react-native-user-inactivity";
+
 import { AuthScreen } from "../Screens/AuthScreen";
+import { MainStack } from "./MainStack";
 
 const RootStack = createNativeStackNavigator<RootStackParamList>();
 
@@ -14,15 +17,13 @@ export const RootNavigator = () => {
     <NavigationContainer>
       <UserInactivity onAction={(isActive: boolean) => {}}>
         <Navigator
-          defaultScreenOptions={{
+          screenOptions={{
             headerShown: false,
           }}
+          initialRouteName="authStack"
         >
-          <Screen
-            options={{ headerShown: false }}
-            name="auth"
-            component={AuthScreen}
-          />
+          <Screen name="authStack" component={AuthScreen} />
+          <Screen name="mainStack" component={MainStack} />
         </Navigator>
       </UserInactivity>
     </NavigationContainer>

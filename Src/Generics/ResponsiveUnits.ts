@@ -6,14 +6,14 @@ import {
 
 type UnitScale = number;
 
-export const RWidth = (arg: UnitScale) => {
+export const RWidth = (arg: UnitScale): number => {
   return responsiveWidth(arg);
 };
 
-export const RHeight = (arg: UnitScale) => {
+export const RHeight = (arg: UnitScale): number => {
   return responsiveHeight(arg);
 };
 
-export const RFontSize = (arg: UnitScale) => {
+export const RFontSize = (arg: UnitScale): number => {
   return responsiveFontSize(arg);
 };

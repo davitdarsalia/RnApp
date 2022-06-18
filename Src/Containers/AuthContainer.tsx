@@ -17,14 +17,6 @@ import { WrapperModal } from "../Components/WrapperModel/WrapperModel";
 interface Props {}
 
 export const AuthContainer: React.FC<Props> = ({}) => {
-  const [isBiometrySupported, setIsBiometrySupported] = useState(false);
-
-  useEffect(() => {
-    async () => {
-      const isCompatible = await LocalAuthentication.hasHardwareAsync();
-      setIsBiometrySupported(isCompatible);
-    };
-  }, []);
   return (
     <KeyboardAwareScrollView
       enableAutomaticScroll
@@ -36,7 +28,6 @@ export const AuthContainer: React.FC<Props> = ({}) => {
       <WrapperModal>
         <AuthForm />
       </WrapperModal>
-      {/* <Button onPress={handleBiometricAuth} title="Scan"></Button> */}
     </KeyboardAwareScrollView>
   );
 };

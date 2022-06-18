@@ -1,0 +1,10 @@
+.*
+node_modules
+ios
+android
+__*
+*.md
+*.d.ts
+*.json
+yarn.lock
+.*
