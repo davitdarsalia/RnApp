@@ -1,34 +1,39 @@
 import React from 'react'
-import { Formik } from 'formik'
 import { View } from 'react-native'
+import { Formik } from 'formik'
+import { useNavigation } from '@react-navigation/native'
 
-import GenericInput from '../../Primitives/GenericInput/GenericInput'
+import { useCustomDispatch } from '../../Store/Hooks/Hooks'
+import { useAuth } from '../../Hooks/UseAuth'
+
 import { Button } from '../../Primitives/Button/Button'
 import { LoginSchema } from './Validation'
 import { RWidth } from '../../Generics/ResponsiveUnits'
-import { useNavigation } from '@react-navigation/native'
+import GenericInput from '../../Primitives/GenericInput/GenericInput'
 import { RootStackGenericProp } from '../../../types'
-import { useContainer } from '../../Components/GlobalLoader/loaderRef'
 
 interface Props {}
 
 export const AuthForm: React.FC<Props> = ({}) => {
 	const { replace } = useNavigation<RootStackGenericProp<'mainStack'>>()
+	const dispatch = useCustomDispatch()
+
 	const onLogin = () => {
 		replace('mainStack')
 	}
 
-	const { loader } = useContainer()
+	const { login } = useAuth()
+
+	// const { startLoader, interruptLoader } = useContainer()
 
 	return (
 		<Formik
 			initialValues={{
-				email: 'darsalia.david1998@gmail.com',
-				password: 'David.1998!'
+				username: '',
+				password: ''
 			}}
 			onSubmit={values => {
-				loader()
-				onLogin()
+				dispatch(login(values.username, values.password))
 			}}
 			validationSchema={LoginSchema}
 		>
@@ -36,16 +41,16 @@ export const AuthForm: React.FC<Props> = ({}) => {
 				return (
 					<View>
 						<GenericInput
-							value={values.email}
-							touched={touched.email}
-							errors={touched.email && errors.email ? errors.email : ''}
-							placeholder={'Enter An Email'}
-							onChangeText={handleChange('email')}
+							value={values.username}
+							touched={touched.username}
+							errors={touched.username && errors.username ? errors.username : ''}
+							placeholder={'Enter An Username'}
+							onChangeText={handleChange('username')}
 							onBlur={() => {
-								handleBlur('email')
-								setFieldTouched('email')
+								handleBlur('username')
+								setFieldTouched('username')
 							}}
-							errorText={errors.email}
+							errorText={errors.username}
 						/>
 						<GenericInput
 							value={values.password}
@@ -61,7 +66,7 @@ export const AuthForm: React.FC<Props> = ({}) => {
 						/>
 						<Button
 							disabled={
-								errors.email === undefined && errors.password === undefined ? false : true
+								errors.username === undefined && errors.password === undefined ? false : true
 							}
 							style={{
 								marginTop: RWidth(5)
