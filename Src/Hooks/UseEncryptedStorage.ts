@@ -9,34 +9,42 @@ export const useEncryptedStorage = () => {
 	}
 }
 
-const setValue = async (key: string, value: any) => {
-	try {
-		await EncryptedStorage.setItem(key, value)
-	} catch (error) {
-		console.warn(error, 'UseEncryptedStorageHook Error: setValue')
+export const setValue = (key: string, value: any) => {
+	;async () => {
+		try {
+			await EncryptedStorage.setItem(key, value)
+		} catch (error) {
+			console.warn(error, 'UseEncryptedStorageHook Error: setValue')
+		}
 	}
 }
 
-const getValue = async (key: string) => {
-	try {
-		return await EncryptedStorage.getItem(key)
-	} catch (error) {
-		console.warn(error, 'UseEncryptedStorageHook Error: getValue')
+const getValue = (key: string) => {
+	;async () => {
+		try {
+			return await EncryptedStorage.getItem(key)
+		} catch (error) {
+			console.warn(error, 'UseEncryptedStorageHook Error: getValue')
+		}
 	}
 }
 
-const removeValue = async (key: string) => {
-	try {
-		await EncryptedStorage.removeItem(key)
-	} catch (error) {
-		console.warn(error, 'UseEncryptedStorageHook Error: removeValue')
+const removeValue = (key: string) => {
+	;async () => {
+		try {
+			await EncryptedStorage.removeItem(key)
+		} catch (error) {
+			console.warn(error, 'UseEncryptedStorageHook Error: removeValue')
+		}
 	}
 }
 
-const removeAllValues = async () => {
-	try {
-		await EncryptedStorage.clear()
-	} catch (error) {
-		console.warn(error, 'UseEncryptedStorageHook Error: removeAllValues')
+const removeAllValues = () => {
+	;async () => {
+		try {
+			await EncryptedStorage.clear()
+		} catch (error) {
+			console.warn(error, 'UseEncryptedStorageHook Error: removeAllValues')
+		}
 	}
 }

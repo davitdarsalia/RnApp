@@ -3,11 +3,12 @@ import axios from 'axios'
 
 import { authSlice } from './AuthSlice'
 import { AppDispatch } from '../config'
+import { axionsInstance } from '../../Configs/Interceptor'
 
 export const login = (username: string, password: string) => async (dispatch: AppDispatch) => {
 	try {
 		dispatch(authSlice.actions.loginRequest())
-		const response = await axios.post<IUserAuth>(`http://localhost:8080/api/auth/sign-in`, {
+		const response = await axionsInstance.post<IUserAuth>(`http://localhost:8080/api/auth/sign-in`, {
 			username,
 			password
 		})

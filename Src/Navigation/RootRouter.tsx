@@ -1,4 +1,6 @@
-import React from 'react'
+import React, { useEffect, useState } from 'react'
+
+import Config from 'react-native-config'
 
 import { NavigationContainer } from '@react-navigation/native'
 import { createNativeStackNavigator } from '@react-navigation/native-stack'
@@ -7,31 +9,37 @@ import UserInactivity from 'react-native-user-inactivity'
 
 import { AuthScreen } from '../Screens/AuthScreen'
 import { MainStack } from './MainStack'
-import { useCustomSelector } from '../Store/Hooks/Hooks'
-
-import jwt_decode from 'jwt-decode'
+import { useSecureStorage } from '../Hooks/UseSecureStorage'
 
 const RootStack = createNativeStackNavigator<RootStackParamList>()
 
 export const RootNavigator = () => {
-	const token = useCustomSelector(state => state.authReducer.access_token)
+	const { getValue, removeValue } = useSecureStorage()
+	const [token, setToken] = useState<string | null>(null)
+
+	useEffect(() => {
+		getValue('access_token').then(val => setToken(val))
+	}, [])
 
 	const { Screen, Navigator } = RootStack
 
+	const renderCondition =
+		token && token != null ? (
+			<Screen name='mainStack' component={MainStack} />
+		) : (
+			<Screen name='authStack' component={AuthScreen} />
+		)
+
 	return (
 		<NavigationContainer>
-			<UserInactivity onAction={(isActive: boolean) => {}}>
+			<UserInactivity onAction={() => {}} timeForInactivity={parseInt(Config.inactivity_time)}>
 				<Navigator
 					screenOptions={{
 						headerShown: false
 					}}
 					initialRouteName='authStack'
 				>
-					{token.length === 296 ? (
-						<Screen name='mainStack' component={MainStack} />
-					) : (
-						<Screen name='authStack' component={AuthScreen} />
-					)}
+					{renderCondition}
 				</Navigator>
 			</UserInactivity>
 		</NavigationContainer>

@@ -1,19 +1,20 @@
-import {
-  responsiveHeight,
-  responsiveWidth,
-  responsiveFontSize,
-} from "react-native-responsive-dimensions";
+import { responsiveHeight, responsiveWidth, responsiveFontSize } from 'react-native-responsive-dimensions'
+import { PixelRatio } from 'react-native'
 
-type UnitScale = number;
+type UnitScale = number
 
 export const RWidth = (arg: UnitScale): number => {
-  return responsiveWidth(arg);
-};
+	return responsiveWidth(arg)
+}
 
 export const RHeight = (arg: UnitScale): number => {
-  return responsiveHeight(arg);
-};
+	return responsiveHeight(arg)
+}
+
+export const UnitScale = (arg: UnitScale): number => {
+	return PixelRatio.getPixelSizeForLayoutSize(arg)
+}
 
 export const RFontSize = (arg: UnitScale): number => {
-  return responsiveFontSize(arg);
-};
+	return responsiveFontSize(arg)
+}

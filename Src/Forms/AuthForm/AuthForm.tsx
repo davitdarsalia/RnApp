@@ -1,5 +1,6 @@
-import React from 'react'
+import React, { useEffect } from 'react'
 import { View } from 'react-native'
+
 import { Formik } from 'formik'
 import { useNavigation } from '@react-navigation/native'
 import { RootStackGenericProp } from '../../../types'
@@ -10,7 +11,9 @@ import { useAuth } from '../../Hooks/UseAuth'
 import { Button } from '../../Primitives/Button/Button'
 import { LoginSchema } from './Validation'
 import { RWidth } from '../../Generics/ResponsiveUnits'
+
 import GenericInput from '../../Primitives/GenericInput/GenericInput'
+import { AxiosGlobalInstance } from '../../Configs/AxiosGlobalInstance'
 
 interface Props {}
 
@@ -24,13 +27,11 @@ export const AuthForm: React.FC<Props> = ({}) => {
 
 	const { login } = useAuth()
 
-	// const { startLoader, interruptLoader } = useContainer()
-
 	return (
 		<Formik
 			initialValues={{
-				username: '',
-				password: ''
+				username: 'davit',
+				password: 'David.1998!'
 			}}
 			onSubmit={values => {
 				dispatch(login(values.username, values.password))

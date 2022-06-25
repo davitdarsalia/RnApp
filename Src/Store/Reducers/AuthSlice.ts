@@ -1,6 +1,6 @@
-import { InitialState } from '@react-navigation/native'
 import { PayloadAction } from '@reduxjs/toolkit'
 import { createSlice } from '@reduxjs/toolkit'
+import { useSecureStorage } from '../../Hooks/UseSecureStorage'
 
 import { IUserAuth, IInitialState, IUserReg } from './../Models/Auth'
 
@@ -15,6 +15,8 @@ const initialState: IInitialState = {
 	userid: '',
 	createdAt: ''
 }
+
+const { setValue } = useSecureStorage()
 
 export const authSlice = createSlice({
 	name: 'auth',
@@ -44,6 +46,7 @@ export const authSlice = createSlice({
 			state.access_token_exp = action.payload.access_token_exp
 			state.refresh_token = action.payload.refresh_token
 			state.refresh_token_exp = action.payload.refresh_token_exp
+			setValue('access_token', action.payload.access_token)
 		},
 		loginFailure(state, action) {
 			state.isLoading = false
